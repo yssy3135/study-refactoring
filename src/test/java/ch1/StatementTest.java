@@ -22,8 +22,8 @@ public class StatementTest {
 
     @Test
     public void test_statement() throws IOException {
-        File invoicesFile = new File("src/test/resources/ch1/json/invoices.json");
-        File playsFile = new File("src/test/resources/ch1/json/plays.json");
+        File invoicesFile = new File("src/test/resources/ch1/data/invoices.json");
+        File playsFile = new File("src/test/resources/ch1/data/plays.json");
 
         Invoice[] invoices = objectMapper.readValue(invoicesFile, Invoice[].class);
         Map<String, Play> plays = objectMapper.readValue(playsFile, new TypeReference<Map<String, Play>>() {});
