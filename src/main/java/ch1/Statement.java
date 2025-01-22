@@ -4,32 +4,38 @@ import java.text.NumberFormat;
 import java.util.Locale;
 import java.util.Map;
 
-public class Example {
+public class Statement {
 
     public String statement(Invoice invoice, Map<String, Play> plays) {
-        int totalAmount = 0;
-
 
         StringBuilder result = new StringBuilder(String.format("청구 내역 (고객명 : %s)\n", invoice.getCustomer()));
 
+        int totalAmount = appleSauce(invoice, plays, result);
 
+        int volumeCredits = totalVolumeCredits(invoice, plays);
+
+        result.append(String.format("총액: %s\n", usd(totalAmount)));
+        result.append(String.format("적립 포인트: %d점\n", volumeCredits));
+
+        return result.toString();
+    }
+
+    private int appleSauce(Invoice invoice, Map<String, Play> plays, StringBuilder result) {
+        int totalAmount = 0;
         for(Performance perf : invoice.getPerformances()) {
             //청구 내역을 출력한다.
             result.append(String.format(" %s : %d (%d석)\n", playFor(plays, perf).getName(), amountFor(perf, playFor(plays, perf)) / 100, perf.getAudience()));
             totalAmount += amountFor(perf, playFor(plays, perf));
         }
+        return totalAmount;
+    }
 
+    private int totalVolumeCredits(Invoice invoice, Map<String, Play> plays) {
         int volumeCredits = 0;
         for (Performance perf : invoice.getPerformances()) {
             volumeCredits += volumeCreditsFor(plays, perf);
         }
-
-        result.append(String.format("총액: %s\n", usd(totalAmount)));
-        result.append(String.format("적립 포인트: %d점\n", volumeCredits));
-
-
-
-        return result.toString();
+        return volumeCredits;
     }
 
     private static String usd(int aNumber) {
