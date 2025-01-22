@@ -22,7 +22,7 @@ public class Example {
 
         }
 
-        result.append(String.format("총액: %s\n", format(totalAmount / 100)));
+        result.append(String.format("총액: %s\n", usd(totalAmount)));
         result.append(String.format("적립 포인트: %d점\n", volumeCredits));
 
 
@@ -30,8 +30,8 @@ public class Example {
         return result.toString();
     }
 
-    private static String format(int aNumber) {
-        return NumberFormat.getCurrencyInstance(Locale.US).format(aNumber);
+    private static String usd(int aNumber) {
+        return NumberFormat.getCurrencyInstance(Locale.US).format(aNumber / 100);
     }
 
     private int volumeCreditsFor(Map<String, Play> plays, Performance aPerformance) {
