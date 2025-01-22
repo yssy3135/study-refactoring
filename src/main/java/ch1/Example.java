@@ -12,8 +12,6 @@ public class Example {
 
         StringBuilder result = new StringBuilder(String.format("청구 내역 (고객명 : %s)\n", invoice.getCustomer()));
 
-        NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance( Locale.US);
-
 
         for(Performance perf : invoice.getPerformances()) {
             volumeCredits += volumeCreditsFor(plays, perf);
@@ -24,12 +22,16 @@ public class Example {
 
         }
 
-        result.append(String.format("총액: %s\n", currencyFormatter.format(totalAmount / 100)));
+        result.append(String.format("총액: %s\n", format(totalAmount / 100)));
         result.append(String.format("적립 포인트: %d점\n", volumeCredits));
 
 
 
         return result.toString();
+    }
+
+    private static String format(int aNumber) {
+        return NumberFormat.getCurrencyInstance(Locale.US).format(aNumber);
     }
 
     private int volumeCreditsFor(Map<String, Play> plays, Performance aPerformance) {
