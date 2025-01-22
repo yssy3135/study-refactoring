@@ -16,15 +16,15 @@ public class Example {
 
 
         for(Performance perf : invoice.getPerformances()) {
-            Play play = playFor(plays, perf);
-            int thisAmount = amountFor(perf, play);
+
+            int thisAmount = amountFor(perf, playFor(plays, perf));
             // 포인트를 적립한다.
             volumeCredits += Math.max(perf.getAudience() - 30, 0);
             // 희극 관객 5명마다 추가 포인트를 제공한다.
-            if("comedy".equals(play.getType())) volumeCredits += (int) Math.floor((double) perf.getAudience() / 5);
+            if("comedy".equals(playFor(plays, perf).getType())) volumeCredits += (int) Math.floor((double) perf.getAudience() / 5);
 
             //청구 내역을 출력한다.
-            result.append(String.format(" %s : %d (%d석)\n", play.getName(), thisAmount / 100, perf.getAudience()));
+            result.append(String.format(" %s : %d (%d석)\n", playFor(plays, perf).getName(), thisAmount / 100, perf.getAudience()));
             totalAmount += thisAmount;
 
         }
