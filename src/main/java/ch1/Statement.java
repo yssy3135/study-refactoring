@@ -9,20 +9,21 @@ public class Statement {
     public String statement(Invoice invoice, Map<String, Play> plays) {
 
         StringBuilder result = new StringBuilder(String.format("청구 내역 (고객명 : %s)\n", invoice.getCustomer()));
-        
-        int volumeCredits = totalVolumeCredits(invoice, plays);
 
-        result.append(String.format("총액: %s\n", usd(totalAmount(invoice, plays, result))));
+        for(Performance perf : invoice.getPerformances()) {
+            result.append(String.format(" %s : %d (%d석)\n", playFor(plays, perf).getName(), amountFor(perf, playFor(plays, perf)) / 100, perf.getAudience()));
+        }
+
+        int volumeCredits = totalVolumeCredits(invoice, plays);
+        result.append(String.format("총액: %s\n", usd(totalAmount(invoice, plays))));
         result.append(String.format("적립 포인트: %d점\n", volumeCredits));
 
         return result.toString();
     }
 
-    private int totalAmount(Invoice invoice, Map<String, Play> plays, StringBuilder sb) {
+    private int totalAmount(Invoice invoice, Map<String, Play> plays) {
         int result = 0;
         for(Performance perf : invoice.getPerformances()) {
-            //청구 내역을 출력한다.
-            sb.append(String.format(" %s : %d (%d석)\n", playFor(plays, perf).getName(), amountFor(perf, playFor(plays, perf)) / 100, perf.getAudience()));
             result += amountFor(perf, playFor(plays, perf));
         }
         return result;
