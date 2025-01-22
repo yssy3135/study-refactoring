@@ -32,11 +32,11 @@ public class Example {
         return result.toString();
     }
 
-    private int volumeCreditsFor(Map<String, Play> plays, Performance perf) {
+    private int volumeCreditsFor(Map<String, Play> plays, Performance aPerformance) {
         int volumeCredits = 0;
-        volumeCredits += Math.max(perf.getAudience() - 30, 0);
-        if("comedy".equals(playFor(plays, perf).getType())) {
-            volumeCredits += (int) Math.floor((double) perf.getAudience() / 5);
+        volumeCredits += Math.max(aPerformance.getAudience() - 30, 0);
+        if("comedy".equals(playFor(plays, aPerformance).getType())) {
+            volumeCredits += (int) Math.floor((double) aPerformance.getAudience() / 5);
         }
         return volumeCredits;
     }
