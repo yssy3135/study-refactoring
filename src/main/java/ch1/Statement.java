@@ -9,7 +9,7 @@ public class Statement {
     public String statement(Invoice invoice, Map<String, Play> plays) {
 
         StringBuilder result = new StringBuilder(String.format("청구 내역 (고객명 : %s)\n", invoice.getCustomer()));
-
+        
         int volumeCredits = totalVolumeCredits(invoice, plays);
 
         result.append(String.format("총액: %s\n", usd(totalAmount(invoice, plays, result))));
@@ -18,22 +18,22 @@ public class Statement {
         return result.toString();
     }
 
-    private int totalAmount(Invoice invoice, Map<String, Play> plays, StringBuilder result) {
-        int totalAmount = 0;
+    private int totalAmount(Invoice invoice, Map<String, Play> plays, StringBuilder sb) {
+        int result = 0;
         for(Performance perf : invoice.getPerformances()) {
             //청구 내역을 출력한다.
-            result.append(String.format(" %s : %d (%d석)\n", playFor(plays, perf).getName(), amountFor(perf, playFor(plays, perf)) / 100, perf.getAudience()));
-            totalAmount += amountFor(perf, playFor(plays, perf));
+            sb.append(String.format(" %s : %d (%d석)\n", playFor(plays, perf).getName(), amountFor(perf, playFor(plays, perf)) / 100, perf.getAudience()));
+            result += amountFor(perf, playFor(plays, perf));
         }
-        return totalAmount;
+        return result;
     }
 
     private int totalVolumeCredits(Invoice invoice, Map<String, Play> plays) {
-        int volumeCredits = 0;
+        int result = 0;
         for (Performance perf : invoice.getPerformances()) {
-            volumeCredits += volumeCreditsFor(plays, perf);
+            result += volumeCreditsFor(plays, perf);
         }
-        return volumeCredits;
+        return result;
     }
 
     private static String usd(int aNumber) {
@@ -41,12 +41,12 @@ public class Statement {
     }
 
     private int volumeCreditsFor(Map<String, Play> plays, Performance aPerformance) {
-        int volumeCredits = 0;
-        volumeCredits += Math.max(aPerformance.getAudience() - 30, 0);
+        int result = 0;
+        result += Math.max(aPerformance.getAudience() - 30, 0);
         if("comedy".equals(playFor(plays, aPerformance).getType())) {
-            volumeCredits += (int) Math.floor((double) aPerformance.getAudience() / 5);
+            result += (int) Math.floor((double) aPerformance.getAudience() / 5);
         }
-        return volumeCredits;
+        return result;
     }
 
     private Play playFor(Map<String, Play> plays, Performance perf) {
