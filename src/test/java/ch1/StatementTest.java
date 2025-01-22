@@ -29,7 +29,7 @@ public class StatementTest {
         Map<String, Play> plays = objectMapper.readValue(playsFile, new TypeReference<Map<String, Play>>() {});
         Invoice invoice = invoices[0];
 
-        String result = Example.statement(invoice, plays);
+        String result = new Example().statement(invoice, plays);
         assertThat(result).isEqualTo(
                 """
                         청구 내역 (고객명 : BigCo)

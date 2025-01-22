@@ -6,7 +6,7 @@ import java.util.Map;
 
 public class Example {
 
-    public static String statement(Invoice invoice, Map<String, Play> plays) {
+    public String statement(Invoice invoice, Map<String, Play> plays) {
         int totalAmount = 0;
         int volumeCredits = 0;
 
@@ -16,12 +16,7 @@ public class Example {
 
 
         for(Performance perf : invoice.getPerformances()) {
-
-
-            // 포인트를 적립한다.
-            volumeCredits += Math.max(perf.getAudience() - 30, 0);
-            // 희극 관객 5명마다 추가 포인트를 제공한다.
-            if("comedy".equals(playFor(plays, perf).getType())) volumeCredits += (int) Math.floor((double) perf.getAudience() / 5);
+            volumeCredits += volumeCreditsFor(plays, perf);
 
             //청구 내역을 출력한다.
             result.append(String.format(" %s : %d (%d석)\n", playFor(plays, perf).getName(), amountFor(perf, playFor(plays, perf)) / 100, perf.getAudience()));
@@ -37,13 +32,22 @@ public class Example {
         return result.toString();
     }
 
-    private static Play playFor(Map<String, Play> plays, Performance perf) {
+    private int volumeCreditsFor(Map<String, Play> plays, Performance perf) {
+        int volumeCredits = 0;
+        volumeCredits += Math.max(perf.getAudience() - 30, 0);
+        if("comedy".equals(playFor(plays, perf).getType())) {
+            volumeCredits += (int) Math.floor((double) perf.getAudience() / 5);
+        }
+        return volumeCredits;
+    }
+
+    private Play playFor(Map<String, Play> plays, Performance perf) {
         return plays.get(perf.getPlayID());
     }
 
 
     // 함수 쪼개기
-    public static int amountFor(Performance aPerformance, Play play) {
+    private int amountFor(Performance aPerformance, Play play) {
         int result = 0;
 
         switch(play.type) {
