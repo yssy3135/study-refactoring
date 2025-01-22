@@ -8,6 +8,10 @@ public class Statement {
 
     public String statement(Invoice invoice, Map<String, Play> plays) {
 
+        return renderPlainText(invoice, plays);
+    }
+
+    private String renderPlainText(Invoice invoice, Map<String, Play> plays) {
         StringBuilder result = new StringBuilder(String.format("청구 내역 (고객명 : %s)\n", invoice.getCustomer()));
 
         for(Performance perf : invoice.getPerformances()) {
