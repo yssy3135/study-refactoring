@@ -16,7 +16,7 @@ public class Example {
 
 
         for(Performance perf : invoice.getPerformances()) {
-            Play play = plays.get(perf.getPlayID());
+            Play play = playFor(plays, perf);
             int thisAmount = amountFor(perf, play);
             // 포인트를 적립한다.
             volumeCredits += Math.max(perf.getAudience() - 30, 0);
@@ -32,8 +32,15 @@ public class Example {
         result.append(String.format("총액: %s\n", currencyFormatter.format(totalAmount / 100)));
         result.append(String.format("적립 포인트: %d점\n", volumeCredits));
 
+
+
         return result.toString();
     }
+
+    private static Play playFor(Map<String, Play> plays, Performance perf) {
+        return plays.get(perf.getPlayID());
+    }
+
 
     // 함수 쪼개기
     public static int amountFor(Performance aPerformance, Play play) {
