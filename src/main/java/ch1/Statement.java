@@ -10,17 +10,15 @@ public class Statement {
 
         StringBuilder result = new StringBuilder(String.format("청구 내역 (고객명 : %s)\n", invoice.getCustomer()));
 
-        int totalAmount = appleSauce(invoice, plays, result);
-
         int volumeCredits = totalVolumeCredits(invoice, plays);
 
-        result.append(String.format("총액: %s\n", usd(totalAmount)));
+        result.append(String.format("총액: %s\n", usd(totalAmount(invoice, plays, result))));
         result.append(String.format("적립 포인트: %d점\n", volumeCredits));
 
         return result.toString();
     }
 
-    private int appleSauce(Invoice invoice, Map<String, Play> plays, StringBuilder result) {
+    private int totalAmount(Invoice invoice, Map<String, Play> plays, StringBuilder result) {
         int totalAmount = 0;
         for(Performance perf : invoice.getPerformances()) {
             //청구 내역을 출력한다.
