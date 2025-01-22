@@ -8,18 +8,20 @@ public class Example {
 
     public String statement(Invoice invoice, Map<String, Play> plays) {
         int totalAmount = 0;
-        int volumeCredits = 0;
+
 
         StringBuilder result = new StringBuilder(String.format("청구 내역 (고객명 : %s)\n", invoice.getCustomer()));
 
 
         for(Performance perf : invoice.getPerformances()) {
-            volumeCredits += volumeCreditsFor(plays, perf);
-
             //청구 내역을 출력한다.
             result.append(String.format(" %s : %d (%d석)\n", playFor(plays, perf).getName(), amountFor(perf, playFor(plays, perf)) / 100, perf.getAudience()));
             totalAmount += amountFor(perf, playFor(plays, perf));
+        }
 
+        int volumeCredits = 0;
+        for (Performance perf : invoice.getPerformances()) {
+            volumeCredits += volumeCreditsFor(plays, perf);
         }
 
         result.append(String.format("총액: %s\n", usd(totalAmount)));
