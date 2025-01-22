@@ -37,27 +37,27 @@ public class Example {
 
     // 함수 쪼개기
     public static int amountFor(Performance perf, Play play) {
-        int thisAmount = 0;
+        int result = 0;
 
         switch(play.type) {
             case "tragedy" :
-                thisAmount = 40000;
+                result = 40000;
                 if(perf.getAudience() > 30) {
-                    thisAmount += 1000 * (perf.getAudience() -30);
+                    result += 1000 * (perf.getAudience() -30);
                 }
                 break;
             case "comedy" :
-                thisAmount = 30000;
+                result = 30000;
                 if (perf.getAudience() > 20) {
-                    thisAmount += 10000 + 500 * (perf.getAudience() - 20);
+                    result += 10000 + 500 * (perf.getAudience() - 20);
                 }
-                thisAmount += 300 * perf.getAudience();
+                result += 300 * perf.getAudience();
                 break;
             default:
                 throw new IllegalArgumentException("알 수 없는 장르 : " + play.getType());
         }
 
-        return thisAmount;
+        return result;
     }
 
 
