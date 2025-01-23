@@ -7,7 +7,7 @@ import java.util.Map;
 public class Statement {
 
     public String statement(Invoice invoice, Map<String, Play> plays) {
-
+        StatementData statementData = new StatementData(invoice);
         return renderPlainText(invoice, plays);
     }
 
