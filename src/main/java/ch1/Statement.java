@@ -7,35 +7,38 @@ import java.util.Map;
 public class Statement {
 
     public String statement(Invoice invoice, Map<String, Play> plays) {
-        StatementData statementData = new StatementData(invoice);
-        return renderPlainText(statementData, invoice, plays);
+        StatementData statementData =
+                new StatementData(
+                        invoice,
+                        invoice.getPerformances()
+                );
+        return renderPlainText(statementData, plays);
     }
 
-    private String renderPlainText(StatementData data, Invoice invoice, Map<String, Play> plays) {
+    private String renderPlainText(StatementData data, Map<String, Play> plays) {
         StringBuilder result = new StringBuilder(String.format("청구 내역 (고객명 : %s)\n", data.getCustomer()));
 
-        for(Performance perf : invoice.getPerformances()) {
+        for(Performance perf : data.getPerformances()) {
             result.append(String.format(" %s : %d (%d석)\n", playFor(plays, perf).getName(), amountFor(perf, playFor(plays, perf)) / 100, perf.getAudience()));
         }
 
-        int volumeCredits = totalVolumeCredits(invoice, plays);
-        result.append(String.format("총액: %s\n", usd(totalAmount(invoice, plays))));
-        result.append(String.format("적립 포인트: %d점\n", volumeCredits));
+        result.append(String.format("총액: %s\n", usd(totalAmount(data, plays))));
+        result.append(String.format("적립 포인트: %d점\n", totalVolumeCredits(data, plays)));
 
         return result.toString();
     }
 
-    private int totalAmount(Invoice invoice, Map<String, Play> plays) {
+    private int totalAmount(StatementData data, Map<String, Play> plays) {
         int result = 0;
-        for(Performance perf : invoice.getPerformances()) {
+        for(Performance perf : data.getPerformances()) {
             result += amountFor(perf, playFor(plays, perf));
         }
         return result;
     }
 
-    private int totalVolumeCredits(Invoice invoice, Map<String, Play> plays) {
+    private int totalVolumeCredits(StatementData data, Map<String, Play> plays) {
         int result = 0;
-        for (Performance perf : invoice.getPerformances()) {
+        for (Performance perf : data.getPerformances()) {
             result += volumeCreditsFor(plays, perf);
         }
         return result;

@@ -11,13 +11,17 @@ public class StatementData {
 
     private List<Performance> performances;
 
-    public StatementData(Invoice invoice) {
+    public StatementData(Invoice invoice, List<Performance> performances) {
         this.customer = invoice.getCustomer();
-        this.performances = invoice.getPerformances();
+        this.performances = performances;
     }
 
 
     public String getCustomer() {
         return customer;
+    }
+
+    public List<Performance> getPerformances() {
+        return performances;
     }
 }
