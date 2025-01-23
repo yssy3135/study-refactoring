@@ -8,11 +8,11 @@ public class Statement {
 
     public String statement(Invoice invoice, Map<String, Play> plays) {
         StatementData statementData = new StatementData(invoice);
-        return renderPlainText(invoice, plays);
+        return renderPlainText(statementData, invoice, plays);
     }
 
-    private String renderPlainText(Invoice invoice, Map<String, Play> plays) {
-        StringBuilder result = new StringBuilder(String.format("청구 내역 (고객명 : %s)\n", invoice.getCustomer()));
+    private String renderPlainText(StatementData data, Invoice invoice, Map<String, Play> plays) {
+        StringBuilder result = new StringBuilder(String.format("청구 내역 (고객명 : %s)\n", data.getCustomer()));
 
         for(Performance perf : invoice.getPerformances()) {
             result.append(String.format(" %s : %d (%d석)\n", playFor(plays, perf).getName(), amountFor(perf, playFor(plays, perf)) / 100, perf.getAudience()));

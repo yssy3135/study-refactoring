@@ -1,11 +1,13 @@
 package ch1;
 
+import java.util.List;
+
 public class Invoice {
 
     private String customer;
-    private Performance[] performances;
+    private List<Performance> performances;
 
-    public Invoice(String customer, Performance[] performances) {
+    public Invoice(String customer, List<Performance> performances) {
         this.customer = customer;
         this.performances = performances;
     }
@@ -14,7 +16,7 @@ public class Invoice {
         return customer;
     }
 
-    public Performance[] getPerformances() {
+    public List<Performance> getPerformances() {
         return performances;
     }
 
