@@ -27,6 +27,9 @@ public class Performance {
         this.play = play;
     }
 
+    public Play getPlay() {
+        return play;
+    }
 }
 
 
