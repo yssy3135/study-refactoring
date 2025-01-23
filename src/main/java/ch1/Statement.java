@@ -3,6 +3,7 @@ package ch1;
 import java.text.NumberFormat;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Objects;
 
 public class Statement {
 
@@ -13,6 +14,12 @@ public class Statement {
                         invoice.getPerformances()
                 );
         return renderPlainText(statementData, plays);
+    }
+
+    public Performance enrichPerformance(Map<String, Play> plays, Performance aPerformance) {
+        Performance result = aPerformance;
+        result.setPlay(playFor(plays, aPerformance));
+        return result;
     }
 
     private String renderPlainText(StatementData data, Map<String, Play> plays) {
@@ -57,8 +64,8 @@ public class Statement {
         return result;
     }
 
-    private Play playFor(Map<String, Play> plays, Performance perf) {
-        return plays.get(perf.getPlayID());
+    private Play playFor(Map<String, Play> plays, Performance aPerformance) {
+        return plays.get(aPerformance.getPlayID());
     }
 
 

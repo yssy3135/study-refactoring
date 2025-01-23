@@ -4,6 +4,7 @@ public class Performance {
 
     private String playID;
     private int audience;
+    private Play play;
 
     public Performance() {
     }
@@ -22,6 +23,9 @@ public class Performance {
         return audience;
     }
 
+    public void setPlay(Play play) {
+        this.play = play;
+    }
 
 }
 
