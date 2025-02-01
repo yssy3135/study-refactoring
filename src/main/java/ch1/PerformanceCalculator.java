@@ -2,24 +2,20 @@ package ch1;
 
 public class PerformanceCalculator {
 
-    private final Performance performance;
-    private final Play play;
+    protected final Performance performance;
+    protected final Play play;
 
     public PerformanceCalculator(Performance aPerformance, Play aplay) {
         this.performance = aPerformance;
         this.play = aplay;
     }
 
-    public int getAmount() {
+    public int amount() {
         int result = 0;
 
         switch(play.type) {
             case "tragedy" :
-                result = 40000;
-                if(this.performance.getAudience() > 30) {
-                    result += 1000 * (this.performance.getAudience() - 30);
-                }
-                break;
+                throw new IllegalArgumentException("오류 발생");
             case "comedy" :
                 result = 30000;
                 if (this.performance.getAudience() > 20) {

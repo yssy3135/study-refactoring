@@ -33,16 +33,27 @@ public class CreateStatementData {
 
 
     public Performance enrichPerformance(Performance aPerformance) {
-        var calculator = new PerformanceCalculator(aPerformance, playFor(aPerformance));
+        var calculator = createPerformanceCalculator(aPerformance, playFor(aPerformance));
 
         Performance result = new EnrichPerformance(
                 aPerformance,
                 calculator.getVolumeCredits(),
                 playFor(aPerformance),
-                calculator.getAmount()
+                calculator.amount()
         );
 
         return result;
+    }
+
+    private PerformanceCalculator createPerformanceCalculator(Performance aPerformance, Play aplay) {
+        switch (aplay.type) {
+            case "tragedy":
+                return new TragedyCalculator(aPerformance, aplay);
+            case "comedy":
+                return new PerformanceCalculator(aPerformance, aplay);
+            default:
+                throw new IllegalArgumentException("알 수 없는 장르: " + aplay.type);
+        }
     }
 
 
