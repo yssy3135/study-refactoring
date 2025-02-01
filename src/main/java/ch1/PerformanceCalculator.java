@@ -11,18 +11,7 @@ public class PerformanceCalculator {
     }
 
     public int amount() {
-        int result = 0;
-
-        switch(play.type) {
-            case "tragedy" :
-                throw new IllegalArgumentException("오류 발생");
-            case "comedy" :
-                break;
-            default:
-                throw new IllegalArgumentException("알 수 없는 장르 : " + play.getType());
-        }
-
-        return result;
+        throw new IllegalArgumentException("서브클래스에서 처리하도록 설계되었습니다.");
     }
 
     public int getVolumeCredits() {
