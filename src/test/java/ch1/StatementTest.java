@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -21,7 +22,7 @@ public class StatementTest {
     }
 
     @Test
-    public void test_statement() throws IOException {
+    public void test_statement() throws IOException, ParseException {
         File invoicesFile = new File("src/test/resources/ch1/data/invoices.json");
         File playsFile = new File("src/test/resources/ch1/data/plays.json");
 

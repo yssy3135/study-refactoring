@@ -10,8 +10,6 @@ public class PerformanceCalculator {
         this.play = aplay;
     }
 
-
-    // 함수 쪼개기
     public int getAmount() {
         int result = 0;
 
@@ -19,7 +17,7 @@ public class PerformanceCalculator {
             case "tragedy" :
                 result = 40000;
                 if(this.performance.getAudience() > 30) {
-                    result += 1000 * (this.performance.getAudience() -30);
+                    result += 1000 * (this.performance.getAudience() - 30);
                 }
                 break;
             case "comedy" :
@@ -31,6 +29,16 @@ public class PerformanceCalculator {
                 break;
             default:
                 throw new IllegalArgumentException("알 수 없는 장르 : " + play.getType());
+        }
+
+        return result;
+    }
+
+    public int getVolumeCredits() {
+        int result = 0;
+        result += Math.max(performance.getAudience() - 30, 0);
+        if("comedy".equals(play.getType())) {
+            result += (int) Math.floor((double) performance.getAudience() / 5);
         }
 
         return result;
