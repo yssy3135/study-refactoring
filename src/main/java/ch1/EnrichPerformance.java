@@ -9,7 +9,7 @@ public class EnrichPerformance extends Performance {
         super(performance.getPlayID(), performance.getAudience());
     }
 
-    public EnrichPerformance(Performance performance, Play play, int amount, int volumeCredits) {
+    public EnrichPerformance(Performance performance, int volumeCredits, Play play, int amount) {
         super(performance, volumeCredits, play, amount);
     }
 }

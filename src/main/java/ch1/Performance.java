@@ -29,11 +29,6 @@ public class Performance {
         this.amount = amount;
     }
 
-    public Play playFor(Map<String, Play> plays, Performance aPerformance) {
-        return plays.get(aPerformance.getPlayID());
-    }
-
-
     public String getPlayID() {
         return playID;
     }
@@ -67,6 +62,8 @@ public class Performance {
     public void setVolumeCredits(int volumeCredits) {
         this.volumeCredits = volumeCredits;
     }
+
+
 }
 
 
