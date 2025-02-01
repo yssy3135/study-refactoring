@@ -33,6 +33,8 @@ public class CreateStatementData {
 
 
     public Performance enrichPerformance(Performance aPerformance) {
+        var calculator = new PerformanceCalculator(aPerformance, playFor(aPerformance));
+
         Performance result = new EnrichPerformance(
                 aPerformance,
                 volumeCreditsFor(aPerformance),

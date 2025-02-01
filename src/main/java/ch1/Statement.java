@@ -16,31 +16,6 @@ public class Statement {
         return renderPlainText(CreateStatementData.createStatementData(invoice, plays));
     }
 
-//    public StatementData createStatementData(Invoice invoice, Map<String, Play> plays) {
-//        this.invoice = invoice;
-//        this.plays = plays;
-//        StatementData statementData =
-//                new StatementData(
-//                        invoice,
-//                        invoice.getPerformances().stream()
-//                                .map(this::enrichPerformance)
-//                                .collect(Collectors.toList())
-//                );
-//
-//        return statementData;
-//    }
-
-//    public Performance enrichPerformance(Performance aPerformance) {
-//        Performance result = new EnrichPerformance(
-//                aPerformance,
-//                playFor(aPerformance),
-//                amountFor(aPerformance, playFor(aPerformance)),
-//                volumeCreditsFor(aPerformance)
-//                );
-//
-//        return result;
-//    }
-
     private String renderPlainText(StatementData data) {
         StringBuilder result = new StringBuilder(String.format("청구 내역 (고객명 : %s)\n", data.getCustomer()));
 
