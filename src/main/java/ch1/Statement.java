@@ -13,6 +13,10 @@ public class Statement {
     private Map<String, Play> plays;
 
     public String statement(Invoice invoice, Map<String, Play> plays) {
+        return renderPlainText(createStatementData(invoice, plays));
+    }
+
+    public StatementData createStatementData(Invoice invoice, Map<String, Play> plays) {
         this.invoice = invoice;
         this.plays = plays;
         StatementData statementData =
@@ -22,7 +26,8 @@ public class Statement {
                                 .map(this::enrichPerformance)
                                 .collect(Collectors.toList())
                 );
-        return renderPlainText(statementData);
+
+        return statementData;
     }
 
     public Performance enrichPerformance(Performance aPerformance) {
