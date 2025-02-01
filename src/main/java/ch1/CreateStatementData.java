@@ -58,30 +58,8 @@ public class CreateStatementData {
         return plays.get(aPerformance.getPlayID());
     }
 
-
-    // 함수 쪼개기
-    private int amountFor(Performance aPerformance, Play play) {
-        int result = 0;
-
-        switch(play.type) {
-            case "tragedy" :
-                result = 40000;
-                if(aPerformance.getAudience() > 30) {
-                    result += 1000 * (aPerformance.getAudience() -30);
-                }
-                break;
-            case "comedy" :
-                result = 30000;
-                if (aPerformance.getAudience() > 20) {
-                    result += 10000 + 500 * (aPerformance.getAudience() - 20);
-                }
-                result += 300 * aPerformance.getAudience();
-                break;
-            default:
-                throw new IllegalArgumentException("알 수 없는 장르 : " + play.getType());
-        }
-
-        return result;
+    public int amountFor(Performance aPerformance, Play play) {
+       return new PerformanceCalculator(aPerformance, play).getAmount();
     }
 
 }
