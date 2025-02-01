@@ -46,14 +46,11 @@ public class CreateStatementData {
     }
 
     private PerformanceCalculator createPerformanceCalculator(Performance aPerformance, Play aplay) {
-        switch (aplay.type) {
-            case "tragedy":
-                return new TragedyCalculator(aPerformance, aplay);
-            case "comedy":
-                return new PerformanceCalculator(aPerformance, aplay);
-            default:
-                throw new IllegalArgumentException("알 수 없는 장르: " + aplay.type);
-        }
+        return switch (aplay.type) {
+            case "tragedy" -> new TragedyCalculator(aPerformance, aplay);
+            case "comedy" -> new ComedyCalculator(aPerformance, aplay);
+            default -> throw new IllegalArgumentException("알 수 없는 장르: " + aplay.type);
+        };
     }
 
 
