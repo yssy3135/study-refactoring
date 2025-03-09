@@ -73,7 +73,7 @@ public class Province {
 
 
     public Integer getProfit() {
-        return this.demand - this.demandCost();
+        return this.getDemandValue() - this.demandCost();
     }
 
 

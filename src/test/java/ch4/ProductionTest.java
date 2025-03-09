@@ -9,6 +9,8 @@ import org.junit.jupiter.api.Test;
 import java.io.File;
 import java.io.IOException;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 public class ProductionTest {
     ObjectMapper objectMapper;
 
@@ -20,12 +22,26 @@ public class ProductionTest {
 
     @Test
     public void province() throws IOException {
-        File provinceFile = new File("src/test/resources/ch4/data/province.json");
+        Province sample = sampleProvinceData();
 
-        Province sample = objectMapper.readValue(provinceFile, Province.class);
         Province province = new Province(sample.getName(), sample.getProducers(), sample.getDemand(), sample.getPrice());
 
-        Assertions.assertThat(province.shortFall()).isEqualTo(5);
+        assertThat(province.shortFall()).isEqualTo(5);
+    }
+
+
+    @Test
+    public void profit() throws IOException {
+        Province province = sampleProvinceData();
+        assertThat(province.getProfit()).isEqualTo(230);
+
+    }
+
+
+    private Province sampleProvinceData() throws IOException {
+        File provinceFile = new File("src/test/resources/ch4/data/province.json");
+        Province readValue = objectMapper.readValue(provinceFile, Province.class);
+        return new Province(readValue.name, readValue.producers, readValue.demand, readValue.price);
     }
 
 
