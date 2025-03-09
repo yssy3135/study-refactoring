@@ -35,7 +35,6 @@ public class Province {
     }
 
 
-
     public String getName() {
         return name;
     }
@@ -69,11 +68,17 @@ public class Province {
     }
 
     public Integer shortFall() {
+        if(demand == null) {
+            return null;
+        }
+
         return this.demand - this.totalProduction;
     }
 
 
     public Integer getProfit() {
+        if(demand == null) return null;
+
         return this.getDemandValue() - this.demandCost();
     }
 

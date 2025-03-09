@@ -61,6 +61,27 @@ public class ProductionTest {
         assertThat(asia.getProfit()).isEqualTo(0);
     }
 
+    @Test
+    public void provinceNegativeDemand() throws IOException {
+        Province asia = sampleProvinceData();
+        asia.demand = -1;
+        assertThat(asia.shortFall()).isEqualTo(-26);
+        assertThat(asia.getProfit()).isEqualTo(-10);
+    }
+
+    // demand emptyString일 경우 테스트 대체
+    @Test
+    public void nullDemand() throws IOException {
+        Province asia = sampleProvinceData();
+        asia.demand = null;
+        assertThat(asia.shortFall()).isNull();
+        assertThat(asia.getProfit()).isNull();
+    }
+
+
+
+
+
 
 
     private Province sampleProvinceData() throws IOException {
