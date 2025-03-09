@@ -38,14 +38,6 @@ public class ProductionTest {
         assertThat(province.getProfit()).isEqualTo(230);
     }
 
-
-    @Test
-    public void noProducers() throws IOException {
-        Province noProducers = new Province("No producers", new ArrayList<>(), 30, 20);
-        assertThat(noProducers.shortFall()).isEqualTo(30);
-        assertThat(noProducers.getProfit()).isEqualTo(0);
-    }
-
     @Test
     public void changeProduction() throws IOException {
         Province asia = sampleProvinceData();
@@ -53,6 +45,22 @@ public class ProductionTest {
         assertThat(asia.shortFall()).isEqualTo(-6);
         assertThat(asia.getProfit()).isEqualTo(292);
     }
+
+    @Test
+    public void noProducers() {
+        Province noProducers = new Province("No producers", new ArrayList<>(), 30, 20);
+        assertThat(noProducers.shortFall()).isEqualTo(30);
+        assertThat(noProducers.getProfit()).isEqualTo(0);
+    }
+
+    @Test
+    public void provinceZeroDemand() throws IOException {
+        Province asia = sampleProvinceData();
+        asia.demand = 0;
+        assertThat(asia.shortFall()).isEqualTo(-25);
+        assertThat(asia.getProfit()).isEqualTo(0);
+    }
+
 
 
     private Province sampleProvinceData() throws IOException {
