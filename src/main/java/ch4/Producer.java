@@ -1,10 +1,10 @@
 package ch4;
 public class Producer {
 
-    private Province province;
-    private String name;
-    private Integer cost;
-    private Integer production;
+    Province province;
+    String name;
+    Integer cost;
+    Integer production;
 
     public Producer() {
     }
@@ -30,6 +30,7 @@ public class Producer {
     public Integer getProduction() {
         return production;
     }
+
 
     public void production(String amountStr) {
         Integer amount = Integer.parseInt(amountStr);

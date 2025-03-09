@@ -23,6 +23,7 @@ public class Province {
         this.demand = demand;
         this.price = price;
         producers.forEach(p -> {
+            p.province = this;
             this.totalProduction += p.getProduction();
         });
     }

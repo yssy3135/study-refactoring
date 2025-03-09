@@ -8,7 +8,9 @@ import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
+import static org.assertj.core.api.Assertions.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class ProductionTest {
@@ -34,7 +36,22 @@ public class ProductionTest {
     public void profit() throws IOException {
         Province province = sampleProvinceData();
         assertThat(province.getProfit()).isEqualTo(230);
+    }
 
+
+    @Test
+    public void noProducers() throws IOException {
+        Province noProducers = new Province("No producers", new ArrayList<>(), 30, 20);
+        assertThat(noProducers.shortFall()).isEqualTo(30);
+        assertThat(noProducers.getProfit()).isEqualTo(0);
+    }
+
+    @Test
+    public void changeProduction() throws IOException {
+        Province asia = sampleProvinceData();
+        asia.getProducers().get(0).production("20");
+        assertThat(asia.shortFall()).isEqualTo(-6);
+        assertThat(asia.getProfit()).isEqualTo(292);
     }
 
 
