@@ -18,11 +18,11 @@ public class Refactoring {
 
     private static int calculateOutstanding(Invoice invoice) {
         // 미해결 채무 (outstanding) 을 계산한다.
-        int outstanding = 0;
+        int result = 0;
         for (Order o : invoice.getOrders()) {
-            outstanding += o.amount;
+            result += o.amount;
         }
-        return outstanding;
+        return result;
     }
 
     private static void recordDueDate(Invoice invoice) {
