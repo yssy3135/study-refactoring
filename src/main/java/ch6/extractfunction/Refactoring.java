@@ -14,12 +14,16 @@ public class Refactoring {
             outstanding += o.amount;
         }
 
-        // 마감일(dueDate) 을 기록한다.
-        LocalDateTime today = Clock.today();
-        invoice.dueDate = today.plusDays(30);
+        recordDueDate(invoice);
 
         printDetails(invoice, outstanding);
 
+    }
+
+    private static void recordDueDate(Invoice invoice) {
+        // 마감일(dueDate) 설정.
+        LocalDateTime today = Clock.today();
+        invoice.dueDate = today.plusDays(30);
     }
 
     private void printDetails(Invoice invoice, int outstanding) {
