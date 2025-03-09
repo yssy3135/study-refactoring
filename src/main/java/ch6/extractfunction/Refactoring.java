@@ -8,7 +8,8 @@ public class Refactoring {
 
         printBanner();
 
-        int outstanding = calculateOutstanding(invoice);
+        // 원본 변수 불변 설정
+        final int outstanding = calculateOutstanding(invoice);
 
         recordDueDate(invoice);
 
