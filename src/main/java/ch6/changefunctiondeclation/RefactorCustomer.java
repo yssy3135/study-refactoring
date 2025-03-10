@@ -16,7 +16,7 @@ public class RefactorCustomer {
     }
 
     public List<RefactorCustomer> getEnglandCustomers(List<RefactorCustomer> customers) {
-        return customers.stream().filter(c -> c.inNewEngland(c)).toList();
+        return customers.stream().filter(c -> c.xxNewInNewEngland(c.address.state)).toList();
     }
 
 }
