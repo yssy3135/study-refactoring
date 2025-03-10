@@ -9,6 +9,10 @@ public class RefactorCustomer {
 
     public boolean inNewEngland(RefactorCustomer aCustomer) {
         String stateCode = this.address.state;
+        return xxNewInNewEngland(stateCode);
+    }
+
+    private static boolean xxNewInNewEngland(String stateCode) {
         return List.of("MA", "CT", "ME", "VT", "NH", "RI").contains(stateCode);
     }
 
