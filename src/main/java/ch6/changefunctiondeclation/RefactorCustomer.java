@@ -8,8 +8,7 @@ public class RefactorCustomer {
 
 
     public boolean inNewEngland(RefactorCustomer aCustomer) {
-        String stateCode = this.address.state;
-        return xxNewInNewEngland(stateCode);
+        return xxNewInNewEngland(this.address.state);
     }
 
     private static boolean xxNewInNewEngland(String stateCode) {
