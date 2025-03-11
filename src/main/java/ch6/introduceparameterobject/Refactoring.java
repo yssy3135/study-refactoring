@@ -8,10 +8,10 @@ public class Refactoring {
     Station station;
 
 
-    public List<Reading> readingsOutsideRange(Station station, int min, int max, NumberRange range) {
+    public List<Reading> readingsOutsideRange(Station station, int min, NumberRange range) {
         return station.readings
                 .stream()
-                .filter(r -> r.temp < min || r.temp > max)
+                .filter(r -> r.temp < min || r.temp > range.max)
                 .collect(Collectors.toList());
     }
 }
