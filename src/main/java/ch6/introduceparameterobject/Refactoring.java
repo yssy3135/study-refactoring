@@ -11,7 +11,7 @@ public class Refactoring {
     public List<Reading> readingsOutsideRange(Station station, NumberRange range) {
         return station.readings
                 .stream()
-                .filter(r -> r.temp < range.min || r.temp > range.max)
+                .filter(r -> range.contains(r.temp))
                 .collect(Collectors.toList());
     }
 }
