@@ -20,7 +20,7 @@ public class Reading {
         this.year = aReading.getYear();
     }
 
-    public double calculateBaseCharge() {
+    public double baseCharge() {
         return baseRate() * quantity;
     }
 
