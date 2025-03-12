@@ -13,7 +13,7 @@ public class Refactoring {
         return year + 10;
     }
 
-    public static Reading acquireReading() {
+    private static Reading acquireReading() {
         return new Reading("ivan", 10,5, 2017);
     }
 
@@ -21,17 +21,19 @@ public class Refactoring {
         return baseRate(aReading.month, aReading.year) * aReading.quantity;
     }
 
+
     public class client1 {
         Reading aReading = acquireReading();
-        int baseCharge = baseRate(aReading.month, aReading.year) * aReading.quantity;
+        double baseCharge = aReading.baseCharge();
     }
-
 
     public class client2 {
-        Reading aReading = acquireReading();
-        int base = baseRate(aReading.month, aReading.year) * aReading.quantity;
-        Integer taxableCharge = Math.max(0, base - taxThreshold(aReading.year));
+        Reading rawReading = acquireReading();
+        Reading aReading = new Reading(rawReading);
+        double taxableCharge = aReading.taxableCharge(aReading);
     }
+
+
 
     public class client3 {
         Reading rawReading = acquireReading();
