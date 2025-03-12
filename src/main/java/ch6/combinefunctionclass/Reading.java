@@ -13,6 +13,13 @@ public class Reading {
         this.year = year;
     }
 
+    public Reading(Reading aReading) {
+        this.customer = aReading.getCustomer();
+        this.quantity = aReading.getQuantity();
+        this.month = aReading.getMonth();
+        this.year = aReading.getYear();
+    }
+
     public double calculateBaseCharge() {
         return baseRate() * quantity;
     }
