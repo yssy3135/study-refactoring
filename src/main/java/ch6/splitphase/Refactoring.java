@@ -7,16 +7,17 @@ public class Refactoring {
         PriceData priceData = new PriceData();
         priceData.basePrice = basePrice;
         priceData.quantity = quantity;
-        int price = applyShipping(priceData, shippingMethod, discount);
+        priceData.discount = discount;
+        int price = applyShipping(priceData, shippingMethod);
         return price;
     }
 
-    private int applyShipping(PriceData priceData, ShippingMethod shippingMethod, int discount) {
+    private int applyShipping(PriceData priceData, ShippingMethod shippingMethod) {
         int shippingPerCase = priceData.basePrice > shippingMethod.discountThreshold ?
                 shippingMethod.discountFee :
                 shippingMethod.feePerCase;
         int shippingCost = priceData.quantity * shippingPerCase;
-        int price = priceData.basePrice - discount * shippingCost;
+        int price = priceData.basePrice - priceData.quantity * shippingCost;
         return price;
     }
 }
