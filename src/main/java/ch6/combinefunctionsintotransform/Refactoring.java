@@ -18,12 +18,13 @@ public class Refactoring {
         return new Reading("ivan", 10,5, 2017);
     }
 
-    private int calculateBaseCharge(Reading aReading) {
+    public static int calculateBaseCharge(Reading aReading) {
         return baseRate(aReading.month, aReading.year) * aReading.quantity;
     }
 
-    private Reading enrichReading(Reading rawReading) {
+    public static Reading enrichReading(Reading rawReading) {
         Reading result = new Reading(rawReading);
+        result.baseCharge  = calculateBaseCharge(result);
         return result;
     }
 
@@ -42,7 +43,7 @@ public class Refactoring {
     public class client3 {
         Reading rawReading = acquireReading();
         Reading aReading = enrichReading(rawReading);
-        int basicChargeAmount = calculateBaseCharge(aReading);
+        int basicChargeAmount = aReading.baseCharge;
 
     }
 

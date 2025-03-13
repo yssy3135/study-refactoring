@@ -1,10 +1,12 @@
 package ch6.combinefunctionsintotransform;
 
 public class Reading {
-    protected Customer customer;
-    protected int quantity;
-    protected int month;
-    protected int year;
+    Customer customer;
+    int quantity;
+    int month;
+    int year;
+    int baseCharge;
+
 
     public Reading(String customer, int quantity, int month, int year) {
         this.customer = new Customer(customer);
