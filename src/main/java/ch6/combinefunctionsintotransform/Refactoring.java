@@ -10,7 +10,7 @@ public class Refactoring {
     }
 
     //임의 계산
-    private int taxThreshold(int year) {
+    private static int taxThreshold(int year) {
         return year + 10;
     }
 
@@ -25,7 +25,7 @@ public class Refactoring {
     public static Reading enrichReading(Reading rawReading) {
         Reading result = new Reading(rawReading);
         result.baseCharge  = calculateBaseCharge(result);
-
+        result.taxableCharge = Math.max(0, result.baseCharge - taxThreshold(result.year));
         return result;
     }
 
@@ -39,8 +39,7 @@ public class Refactoring {
     public class client2 {
         Reading rawReading = acquireReading();
         Reading aReading = enrichReading(rawReading);
-        int base = aReading.baseCharge;
-        Integer taxableCharge = Math.max(0, base - taxThreshold(aReading.year));
+        Integer taxableCharge = aReading.taxableCharge;
     }
 
     public class client3 {
