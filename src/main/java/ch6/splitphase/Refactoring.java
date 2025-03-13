@@ -12,8 +12,7 @@ public class Refactoring {
                 shippingMethod.discountFee :
                 shippingMethod.feePerCase;
         int shippingCost = priceData.quantity * shippingPerCase;
-        int price = priceData.basePrice - priceData.quantity * shippingCost;
-        return price;
+        return priceData.basePrice - priceData.quantity * shippingCost;
     }
 
 
