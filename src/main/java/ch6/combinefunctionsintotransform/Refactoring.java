@@ -29,8 +29,9 @@ public class Refactoring {
     }
 
     public class client1 {
-        Reading aReading = acquireReading();
-        int baseCharge = baseRate(aReading.month, aReading.year) * aReading.quantity;
+        Reading rawReading = acquireReading();
+        Reading aReading = enrichReading(rawReading);
+        int baseCharge = aReading.baseCharge;
     }
 
 
