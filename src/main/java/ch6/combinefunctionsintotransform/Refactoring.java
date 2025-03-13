@@ -39,7 +39,7 @@ public class Refactoring {
     public class client2 {
         Reading rawReading = acquireReading();
         Reading aReading = enrichReading(rawReading);
-        int base = baseRate(aReading.month, aReading.year) * aReading.quantity;
+        int base = aReading.baseCharge;
         Integer taxableCharge = Math.max(0, base - taxThreshold(aReading.year));
     }
 
