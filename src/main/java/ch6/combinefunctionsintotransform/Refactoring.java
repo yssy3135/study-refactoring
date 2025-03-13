@@ -25,6 +25,7 @@ public class Refactoring {
     public static Reading enrichReading(Reading rawReading) {
         Reading result = new Reading(rawReading);
         result.baseCharge  = calculateBaseCharge(result);
+
         return result;
     }
 
@@ -36,7 +37,8 @@ public class Refactoring {
 
 
     public class client2 {
-        Reading aReading = acquireReading();
+        Reading rawReading = acquireReading();
+        Reading aReading = enrichReading(rawReading);
         int base = baseRate(aReading.month, aReading.year) * aReading.quantity;
         Integer taxableCharge = Math.max(0, base - taxThreshold(aReading.year));
     }

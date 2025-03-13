@@ -6,6 +6,7 @@ public class Reading {
     int month;
     int year;
     int baseCharge;
+    int taxableCharge;
 
 
     public Reading(String customer, int quantity, int month, int year) {
