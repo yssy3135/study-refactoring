@@ -9,11 +9,11 @@ public class Order {
     }
 
 
-    public Priority getPriority() {
-        return priority;
+    public String getPriority() {
+        return priority.toString();
     }
 
-    public void setPriority(Priority aString) {
-        priority = aString;
+    public void setPriority(String aString) {
+        priority = new Priority(aString);
     }
 }

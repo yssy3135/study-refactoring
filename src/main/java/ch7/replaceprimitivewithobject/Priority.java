@@ -8,5 +8,7 @@ public class Priority {
         this.value = value;
     }
 
-
+    public String toString() {
+        return value;
+    }
 }
