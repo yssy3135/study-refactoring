@@ -24,4 +24,8 @@ public class TelephoneNumber {
     public String getTelephoneNumber() {
         return ("(" + areaCode + ") " + number);
     }
+
+    public String toString() {
+        return ("(" + areaCode + ") " + number);
+    }
 }
