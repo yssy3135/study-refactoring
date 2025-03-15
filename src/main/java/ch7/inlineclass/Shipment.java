@@ -3,6 +3,7 @@ package ch7.inlineclass;
 public class Shipment {
 
     TrackingInfo trackingInformation;
+    String shippingCompany;
 
     public String trackingInfo() {
         return trackingInformation.shippingCompany + " : " + trackingInformation.trackingNumber;
@@ -17,7 +18,7 @@ public class Shipment {
     }
 
     public void setShipmentCompany(String shippingCompany) {
-        this.trackingInformation.setShippingCompany(shippingCompany);
+        this.shippingCompany = shippingCompany;
     }
 
 }
