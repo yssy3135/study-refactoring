@@ -11,7 +11,7 @@ public class Order {
     }
 
    public double price() {
-       int basePrice = this.quantity * this.item.price;
+       final Integer basePrice = this.quantity * this.item.price;
        double discountFactor = 0.98;
 
        if(basePrice > 1000) discountFactor -= 0.03;
