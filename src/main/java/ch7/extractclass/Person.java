@@ -16,18 +16,22 @@ public class Person {
         this.name = name;
     }
     public String getOfficeAreaCode() {
-        return telephoneNumber.getAreaCode();
+        return telephoneNumber.getOfficeAreaCode();
     }
 
     public void setOfficeAreaCode(String officeAreaCode) {
-        this.telephoneNumber.setAreaCode(officeAreaCode);
+        this.telephoneNumber.setOfficeAreaCode(officeAreaCode);
     }
 
     public String getOfficeNumber() {
-        return this.telephoneNumber.getNumber();
+        return this.telephoneNumber.getOfficeNumber();
     }
 
     public void setOfficeNumber(String officeNumber) {
-        this.telephoneNumber.setNumber(officeNumber);
+        this.telephoneNumber.setOfficeNumber(officeNumber);
+    }
+
+    public String getTelephoneNumber() {
+        return telephoneNumber.getTelephoneNumber();
     }
 }

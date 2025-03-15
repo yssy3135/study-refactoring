@@ -1,22 +1,27 @@
 package ch7.extractclass;
 
 public class TelephoneNumber {
-    String areaCode;
-    String number;
 
-    public String getAreaCode() {
-        return areaCode;
+    String officeAreaCode;
+    String officeNumber;
+
+    public String getOfficeAreaCode() {
+        return officeAreaCode;
     }
 
-    public void setAreaCode(String areaCode) {
-        this.areaCode = areaCode;
+    public void setOfficeAreaCode(String officeAreaCode) {
+        this.officeAreaCode = officeAreaCode;
     }
 
-    public String getNumber() {
-        return number;
+    public String getOfficeNumber() {
+        return officeNumber;
     }
 
-    public void setNumber(String number) {
-        this.number = number;
+    public void setOfficeNumber(String officeNumber) {
+        this.officeNumber = officeNumber;
+    }
+
+    public String getTelephoneNumber() {
+        return ("(" + officeAreaCode + ") " + officeNumber);
     }
 }
