@@ -5,7 +5,7 @@ public class Shipment {
     TrackingInfo trackingInformation;
 
     public String trackingInfo() {
-        return trackingInformation.display();
+        return trackingInformation.shippingCompany + " : " + trackingInformation.trackingNumber;
     }
 
     public TrackingInfo getTrackingInfo() {

@@ -3,8 +3,8 @@ package ch7.inlineclass;
 public class TrackingInfo {
 
 
-    private String shippingCompany;
-    private String trackingNumber;
+    String shippingCompany;
+    String trackingNumber;
 
     public TrackingInfo(String shippingCompany, String trackingNumber) {
         this.shippingCompany = shippingCompany;
