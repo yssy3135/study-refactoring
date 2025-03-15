@@ -15,4 +15,9 @@ public class Shipment {
     public void setTrackingInformation(TrackingInfo aTrackingInformation) {
         this.trackingInformation = aTrackingInformation;
     }
+
+    public void setShipmentCompany(String shippingCompany) {
+        this.trackingInformation.setShippingCompany(shippingCompany);
+    }
+
 }
