@@ -11,11 +11,11 @@ public class Order {
     }
 
    public double price() {
-       final Integer basePrice = basePrice();
+
        double discountFactor = 0.98;
 
-       if(basePrice > 1000) discountFactor -= 0.03;
-       return basePrice * discountFactor;
+       if(basePrice() > 1000) discountFactor -= 0.03;
+       return basePrice() * discountFactor;
    }
 
     private int basePrice() {
