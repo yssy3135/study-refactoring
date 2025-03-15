@@ -22,4 +22,21 @@ public class Person {
     public List<Course> getCourse(List<Course> courses) {
         return new ArrayList<>(courses);
     }
+
+    public void addCourse(Course course) {
+        this.courses.add(course);
+    }
+
+    public void removeCourse(Course course) {
+        courses.stream()
+                .filter(c -> c.getName().equals(course.getName()))
+                .findAny()
+                .ifPresentOrElse(
+                        c -> courses.remove(c),
+                        () -> {throw new IllegalArgumentException("Range error");}
+                );
+
+
+    }
+
 }
