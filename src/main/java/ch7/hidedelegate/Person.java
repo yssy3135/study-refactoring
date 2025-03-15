@@ -20,4 +20,8 @@ public class Person {
         department = arg;
     }
 
+    public String getManager() {
+        return department.getManager();
+    }
+
 }
