@@ -9,7 +9,7 @@ public class Order {
     }
 
 
-    public String getPriority() {
+    public String getPriorityString() {
         return priority.toString();
     }
 
