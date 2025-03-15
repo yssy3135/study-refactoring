@@ -1,5 +1,6 @@
 package ch7.removemiddleman;
 
+
 public class Person {
 
     Department department;
@@ -8,5 +9,7 @@ public class Person {
         return department.getManager().toString();
     }
 
-
+    public Department getDepartment() {
+        return department;
+    }
 }
