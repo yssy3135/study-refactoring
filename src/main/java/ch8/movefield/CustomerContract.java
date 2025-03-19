@@ -7,7 +7,7 @@ public class CustomerContract {
     double discountRate;
 
 
-    public CustomerContract(LocalDateTime startDate, double discountRate) {
+    public CustomerContract(LocalDateTime startDate) {
         this.startDate = startDate;
         this.discountRate = discountRate;
     }
