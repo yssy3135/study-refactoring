@@ -17,8 +17,12 @@ public class Customer {
         return discountRate;
     }
 
+    private void setDiscountRate(double discountRate) {
+        this.discountRate = discountRate;
+    }
+
     public void becomePreferred() {
-        discountRate += 0.03;
+        setDiscountRate(discountRate += 0.03);
     }
 
     public void applyDiscount() {
