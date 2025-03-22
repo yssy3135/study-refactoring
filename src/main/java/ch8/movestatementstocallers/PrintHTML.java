@@ -15,9 +15,13 @@ public class PrintHTML {
     }
 
     private void emitPhotoData(OutputStream outStream, Photo photo) throws IOException {
+        zztmp(outStream, photo);
+        outStream.write(String.format("<p> 위치: %s </p>", photo.location).getBytes());
+    }
+
+    private void zztmp(OutputStream outStream, Photo photo) throws IOException {
         outStream.write(String.format("<p> 제목: %s </p>", photo.title).getBytes());
         outStream.write(String.format("<p> 날짜: %s </p>", photo.date.toString()).getBytes());
-        outStream.write(String.format("<p> 위치: %s </p>", photo.location).getBytes());
     }
 
     private void renderPhoto(OutputStream outStream, Photo photo) {
