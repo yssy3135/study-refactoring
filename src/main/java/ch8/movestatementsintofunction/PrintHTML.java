@@ -26,18 +26,13 @@ public class PrintHTML {
         result.add("</div>");
         return String.join("\n", result);
     }
-
-    private String emitPhotoData(Photo photo) {
-        List<String> result = new ArrayList<>();
-        result.add(String.format("<p> 위치: %s </p>", photo.location));
-        result.add(String.format("<p> 날짜: %s </p>", photo.date.toString()));
-        return String.join("\n", result);
-    }
+    
 
     public List<String> zznew(Photo p) {
         return List.of(
                 String.format("<p> 제목: %s </p>", p.title),
-                emitPhotoData(p)
+                String.format("<p> 위치: %s </p>", p.location),
+                String.format("<p> 날짜: %s </p>", p.date.toString())
         );
     }
 
