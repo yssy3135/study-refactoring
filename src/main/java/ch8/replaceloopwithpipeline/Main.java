@@ -1,6 +1,7 @@
 package ch8.replaceloopwithpipeline;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Main {
@@ -10,15 +11,14 @@ public class Main {
     public List<OfficeLocation> acquireData(String input) {
 
         String[] lines = input.split("\n");
-        Boolean firstLine = true;
+
         List<OfficeLocation> result = new ArrayList<>();
 
-        String[] loopItems = lines;
+        String[] loopItems = Arrays.stream(lines)
+                .skip(1)
+                .toArray(String[]::new);
+
         for (String line : loopItems) {
-            if(firstLine) {
-                firstLine = false;
-                continue;
-            }
             if(line.trim().equals("")) {
                 continue;
             }
