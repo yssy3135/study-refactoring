@@ -2,6 +2,8 @@ package ch8.movestatementstocallers;
 
 import java.io.IOException;
 import java.io.OutputStream;
+import java.time.LocalDateTime;
+import java.util.List;
 
 public class PrintHTML {
 
@@ -22,5 +24,22 @@ public class PrintHTML {
 
     }
 
+    public void listRecentPhotos(OutputStream outStream, List<Photo> photos)  {
+        photos.stream()
+                .filter(p -> p.date.isAfter(recentDateCutoff()))
+                .forEach(p -> {
+                    try {
+                        outStream.write("<div>\n".getBytes());
+                        emitPhotoData(outStream, p);
+                        outStream.write("</div>\n".getBytes());
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                });
+    }
+
+    private LocalDateTime recentDateCutoff() {
+        return LocalDateTime.now().minusMonths(1);
+    }
 
 }
