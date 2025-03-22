@@ -3,7 +3,6 @@ package ch8.movestatementsintofunction;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class PrintHTML {
 
@@ -11,7 +10,7 @@ public class PrintHTML {
         List<String> result = new ArrayList<>();
         result.add(String.format("<p> %s </p>", person.name));
         result.add(renderPhoto(person.photo));
-        result.addAll(zznew(person.photo));
+        result.addAll(emotionPhotoData(person.photo));
         return String.join("\n", result);
     }
 
@@ -22,13 +21,13 @@ public class PrintHTML {
     public String photoDiv(Photo photo) {
         List<String> result = new ArrayList<>();
         result.add("<div>");
-        result.addAll(zznew(photo));
+        result.addAll(emotionPhotoData(photo));
         result.add("</div>");
         return String.join("\n", result);
     }
-    
 
-    public List<String> zznew(Photo p) {
+
+    public List<String> emotionPhotoData(Photo p) {
         return List.of(
                 String.format("<p> 제목: %s </p>", p.title),
                 String.format("<p> 위치: %s </p>", p.location),
