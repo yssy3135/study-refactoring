@@ -16,12 +16,10 @@ public class Main {
 
         String[] loopItems = Arrays.stream(lines)
                 .skip(1)
+                .filter(s -> !s.isEmpty())
                 .toArray(String[]::new);
 
         for (String line : loopItems) {
-            if(line.trim().equals("")) {
-                continue;
-            }
             String[] fields = line.split(",");
             if (fields[1].equals("office")) {
                 result.add(new OfficeLocation(fields[0], fields[2]));
