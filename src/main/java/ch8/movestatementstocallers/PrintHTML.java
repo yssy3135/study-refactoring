@@ -11,7 +11,8 @@ public class PrintHTML {
     public  void renderPerson(OutputStream outStream, Person person ) throws IOException {
         outStream.write(String.format("<p> %s </p>", person.name).getBytes());
         renderPhoto(outStream, person.photo);
-        emitPhotoData(outStream, person.photo);
+        zztmp(outStream, person.photo);
+        outStream.write(String.format("<p> 위치: %s </p>", person.photo.location).getBytes());
     }
 
     private void emitPhotoData(OutputStream outStream, Photo photo) throws IOException {
@@ -34,7 +35,8 @@ public class PrintHTML {
                 .forEach(p -> {
                     try {
                         outStream.write("<div>\n".getBytes());
-                        emitPhotoData(outStream, p);
+                        zztmp(outStream, p);
+                        outStream.write(String.format("<p> 위치: %s </p>", p.location).getBytes());
                         outStream.write("</div>\n".getBytes());
                     } catch (IOException e) {
                         throw new RuntimeException(e);
