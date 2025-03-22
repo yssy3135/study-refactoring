@@ -13,7 +13,8 @@ public class Main {
         Boolean firstLine = true;
         List<OfficeLocation> result = new ArrayList<>();
 
-        for (String line : lines) {
+        String[] loopItems = lines;
+        for (String line : loopItems) {
             if(firstLine) {
                 firstLine = false;
                 continue;
