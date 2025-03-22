@@ -9,9 +9,6 @@ public class Main {
         int youngest = Optional.ofNullable(people[0]).map(p -> p.age).orElse(Integer.MAX_VALUE);
         int totalSalary = 0;
         for (People person : people) {
-            if (person.age < youngest) {
-                youngest = person.age;
-            }
             totalSalary += person.salary;
         }
 
@@ -19,7 +16,6 @@ public class Main {
             if (person.age < youngest) {
                 youngest = person.age;
             }
-            totalSalary += person.salary;
         }
 
         return totalSalary;
