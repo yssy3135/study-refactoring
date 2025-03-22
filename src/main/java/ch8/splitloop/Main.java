@@ -14,6 +14,14 @@ public class Main {
             }
             totalSalary += person.salary;
         }
+
+        for (People person : people) {
+            if (person.age < youngest) {
+                youngest = person.age;
+            }
+            totalSalary += person.salary;
+        }
+
         return totalSalary;
     }
 }
