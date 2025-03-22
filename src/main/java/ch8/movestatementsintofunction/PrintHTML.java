@@ -23,8 +23,7 @@ public class PrintHTML {
     public String photoDiv(Photo photo) {
         List<String> result = new ArrayList<>();
         result.add("<div>");
-        result.add(String.format("<p> 제목: %s </p>", photo.title));
-        result.add(emitPhotoData(photo));
+        result.addAll(zznew(photo));
         result.add("</div>");
         return String.join("\n", result);
     }
@@ -34,6 +33,13 @@ public class PrintHTML {
         result.add(String.format("<p> 위치: %s </p>", photo.location));
         result.add(String.format("<p> 날짜: %s </p>", photo.date.toString()));
         return String.join("\n", result);
+    }
+
+    public List<String> zznew(Photo p) {
+        return List.of(
+                String.format("<p> 제목: %s </p>", p.title),
+                emitPhotoData(p)
+        );
     }
 
 }
