@@ -11,8 +11,7 @@ public class PrintHTML {
         List<String> result = new ArrayList<>();
         result.add(String.format("<p> %s </p>", person.name));
         result.add(renderPhoto(person.photo));
-        result.add(String.format("<p> 제목: %s </p>", person.photo.title));
-        result.add(emitPhotoData(person.photo));
+        result.addAll(zznew(person.photo));
         return String.join("\n", result);
     }
 
