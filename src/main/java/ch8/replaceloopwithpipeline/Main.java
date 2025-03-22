@@ -12,19 +12,13 @@ public class Main {
 
         String[] lines = input.split("\n");
 
-        List<OfficeLocation> result = new ArrayList<>();
-
-        String[] loopItems = Arrays.stream(lines)
+        return Arrays.stream(lines)
                 .skip(1)
                 .filter(s -> !s.isEmpty())
-                .toArray(String[]::new);
+                .map(s -> s.split(","))
+                .filter(record -> record[1].trim().equals("India"))
+                .map(record -> new OfficeLocation(record[0], record[2]))
+                .toList();
 
-        for (String line : loopItems) {
-            String[] fields = line.split(",");
-            if (fields[1].equals("office")) {
-                result.add(new OfficeLocation(fields[0], fields[2]));
-            }
-        }
-        return result;
     }
 }
