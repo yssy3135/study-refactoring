@@ -14,6 +14,5 @@ public class ProductionPlan {
 
     public void applyAdjustment(Adjustment adjustment) {
         adjustments.add(adjustment);
-        production += adjustment.amount;
     }
 }
