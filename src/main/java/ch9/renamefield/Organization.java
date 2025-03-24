@@ -4,12 +4,12 @@ public class Organization {
     String title;
     String country;
 
-    public Organization(String name, String country, String title) {
+    public Organization(String country, String title) {
         this.title = title;
         this.country = country;
     }
 
-    public String getName() {
+    public String getTitle() {
         return title;
     }
 
@@ -17,7 +17,7 @@ public class Organization {
         return country;
     }
 
-    public void setName(String aString) {
+    public void setTitle(String aString) {
         this.title = aString;
     }
 
