@@ -8,7 +8,13 @@ public class ProductionPlan {
     List<Adjustment> adjustments = new ArrayList<>();
 
     public int getProduction() {
+        assert(production == calculatedProduction());
         return production;
+    }
+
+    private int calculatedProduction() {
+        return adjustments.stream()
+                .reduce(0, (sum, a) -> sum + a.amount, Integer::sum);
     }
 
     public void applyAdjustment(Adjustment adjustment) {
