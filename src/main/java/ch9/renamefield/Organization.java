@@ -1,16 +1,16 @@
 package ch9.renamefield;
 
 public class Organization {
-    String name;
+    String title;
     String country;
 
-    public Organization(String name, String country) {
-        this.name = name;
+    public Organization(String name, String country, String title) {
+        this.title = title != null ? title : name;
         this.country = country;
     }
 
     public String getName() {
-        return name;
+        return title;
     }
 
     public String getCountry() {
@@ -18,7 +18,7 @@ public class Organization {
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.title = name;
     }
 
     public void setCountry(String aCountry) {
