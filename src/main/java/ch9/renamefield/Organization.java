@@ -5,7 +5,7 @@ public class Organization {
     String country;
 
     public Organization(String name, String country, String title) {
-        this.title = title != null ? title : name;
+        this.title = title;
         this.country = country;
     }
 
@@ -17,8 +17,8 @@ public class Organization {
         return country;
     }
 
-    public void setName(String name) {
-        this.title = name;
+    public void setName(String aString) {
+        this.title = aString;
     }
 
     public void setCountry(String aCountry) {
