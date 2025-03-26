@@ -5,7 +5,7 @@ public class CalculatePayAmount {
     private Employee employee;
 
     public Pay payAmount() {
-       Pay result;
+
        if(employee.isSeparated) {
            return new Pay(0, "SEP");
        }
@@ -15,10 +15,7 @@ public class CalculatePayAmount {
        }
 
        // 급여 계산로직
-       result = somFinalComputation();
-
-
-       return result;
+       return somFinalComputation();
     }
 
     private Pay somFinalComputation() {
