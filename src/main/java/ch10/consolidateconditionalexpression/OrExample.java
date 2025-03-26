@@ -1,6 +1,6 @@
 package ch10.consolidateconditionalexpression;
 
-public class Example {
+public class OrExample {
 
     private Employee anEmployee;
 

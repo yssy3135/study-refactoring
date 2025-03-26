@@ -4,4 +4,5 @@ public class Employee {
     public int seniority;
     public int monthsDisabled;
     public boolean isPartTime;
+    public boolean onVacation;
 }
