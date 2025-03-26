@@ -11,12 +11,16 @@ public class ServiceCalculator {
         double charge = 0;
 
         if(summer()) {
-            charge = quantity * plan.summerRate;
+            charge = summerCharge();
         } else {
             charge = quantity * plan.regularRate + plan.regularServiceCharge;
         }
 
         return charge;
+    }
+
+    private double summerCharge() {
+        return quantity * plan.summerRate;
     }
 
     private boolean summer() {
