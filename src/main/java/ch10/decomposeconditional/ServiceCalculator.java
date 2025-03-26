@@ -13,10 +13,14 @@ public class ServiceCalculator {
         if(summer()) {
             charge = summerCharge();
         } else {
-            charge = quantity * plan.regularRate + plan.regularServiceCharge;
+            charge = regularCharge();
         }
 
         return charge;
+    }
+
+    private double regularCharge() {
+        return quantity * plan.regularRate + plan.regularServiceCharge;
     }
 
     private double summerCharge() {
