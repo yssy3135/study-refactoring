@@ -8,15 +8,8 @@ public class ServiceCalculator {
     Integer quantity;
 
     public double calculate() {
-        double charge = 0;
 
-        if(summer()) {
-            charge = summerCharge();
-        } else {
-            charge = regularCharge();
-        }
-
-        return charge;
+        return summer() ? summerCharge() : regularCharge();
     }
 
     private double regularCharge() {
