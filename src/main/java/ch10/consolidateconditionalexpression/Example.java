@@ -5,10 +5,14 @@ public class Example {
     private Employee anEmployee;
 
     public Integer disabilityAmount() {
-        if((anEmployee.seniority < 2)
-                || (anEmployee.monthsDisabled > 12)
-                ||(anEmployee.isPartTime)) return 0;
+        if(isNotEligibleForDisability()) return 0;
 
         return 0;
+    }
+
+    private boolean isNotEligibleForDisability() {
+        return (anEmployee.seniority < 2)
+                || (anEmployee.monthsDisabled > 12)
+                || (anEmployee.isPartTime);
     }
 }
