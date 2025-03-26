@@ -7,17 +7,17 @@ public class CalculatePayAmount {
     public Pay payAmount() {
        Pay result;
        if(employee.isSeparated) {
-           result = new Pay(0, "SEP");
+           return new Pay(0, "SEP");
        }
-       else {
-           if(employee.isRetired) {
-               result = new Pay(0, "RET");
-           }
-           else {
-               // 급여 계산로직
-               result = somFinalComputation();
-           }
+
+       if(employee.isRetired) {
+           return new Pay(0, "RET");
        }
+
+       // 급여 계산로직
+       result = somFinalComputation();
+
+
        return result;
     }
 
