@@ -10,12 +10,16 @@ public class ServiceCalculator {
     public double calculate() {
         double charge = 0;
 
-        if(!aDate.isBefore(plan.summerStart) && !aDate.isAfter(plan.summerEnd)) {
+        if(summer()) {
             charge = quantity * plan.summerRate;
         } else {
             charge = quantity * plan.regularRate + plan.regularServiceCharge;
         }
 
         return charge;
+    }
+
+    private boolean summer() {
+        return !aDate.isBefore(plan.summerStart) && !aDate.isAfter(plan.summerEnd);
     }
 }
