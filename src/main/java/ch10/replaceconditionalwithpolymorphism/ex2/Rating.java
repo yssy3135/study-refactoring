@@ -55,10 +55,15 @@ public class Rating {
 
     protected int voyageAndHistoryLengthFactor() {
         int result = 0;
-        if (history.length() > 8) result += 1;
+        result += historyLengthFactor();
         if (voyage.length > 14) result -= 1;
         return result;
     }
+
+    protected int historyLengthFactor() {
+        return history.length() > 8 ? 1 : 0;
+    }
+
 
     private boolean hasChina(History history) {
         return history.hasChina();

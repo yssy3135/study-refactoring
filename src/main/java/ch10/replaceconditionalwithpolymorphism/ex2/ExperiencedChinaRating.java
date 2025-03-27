@@ -16,11 +16,16 @@ public class ExperiencedChinaRating extends Rating {
     @Override
     protected int voyageAndHistoryLengthFactor() {
         int result = 0;
-        if (history.length() > 10) result += 1;
+        result += historyLengthFactor();
         if (voyage.length > 12) result += 1;
         if (voyage.length > 18) result -= 1;
 
         return result;
+    }
+
+    @Override
+    protected int historyLengthFactor() {
+        return history.length() > 10 ? 1 : 0;
     }
 
 }
