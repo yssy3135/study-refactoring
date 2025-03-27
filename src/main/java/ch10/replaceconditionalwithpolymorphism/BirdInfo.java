@@ -11,10 +11,10 @@ public class BirdInfo {
     }
 
     public String plumage(Bird bird) {
-        return new Bird(bird).plumage();
+        return Bird.createBird(bird).plumage();
     }
 
     public Integer airSpeedVelocity(Bird bird) {
-        return new Bird(bird).airSpeedVelocity();
+        return Bird.createBird(bird).airSpeedVelocity();
     }
 }

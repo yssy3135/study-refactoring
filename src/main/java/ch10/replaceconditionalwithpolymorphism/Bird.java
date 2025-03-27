@@ -31,6 +31,14 @@ public class Bird {
             case "노르웨이 파랑 앵무" -> (isNailed) ? 0 : 10 + voltage / 10;
             default -> null;
         };
+    }
 
+    public static Bird createBird(Bird bird) {
+        return switch (bird.type) {
+            case "유럽 제비" -> new EuropeanSwallow(bird);
+            case "아프리카 제비" -> new AfricanSwallow(bird);
+            case "노르웨이 파랑 앵무" -> new NorwegianBlueParrot(bird);
+            default -> null;
+        };
     }
 }
