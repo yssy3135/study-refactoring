@@ -13,6 +13,14 @@ public class Rating {
         this.history = history;
     }
 
+    public Rating createRating(Voyage voyage, History history) {
+        if ("중국".equals(voyage.zone) && history.hasChina()) {
+            return new ExperiencedChinaRating(voyage, history);
+        }
+        return new Rating(voyage, history);
+    }
+
+
     public String getValue() {
         int vpf = voyageProfitFactor();
         int vr = voyageRisk();
