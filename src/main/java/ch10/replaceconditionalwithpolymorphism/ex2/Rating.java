@@ -45,23 +45,27 @@ public class Rating {
         return Math.max(result, 0);
     }
 
-    private int voyageProfitFactor() {
+    protected int voyageProfitFactor() {
         int result = 2;
         if (voyage.zone.equals("중국")) result += 1;
         if (voyage.zone.equals("동인도")) result += 1;
-        result += voyageAndHistoryLengthFactor();
+        result += historyLengthFactor();
+        result += voyageLengthFactor();
         return result;
+    }
+
+    protected int voyageLengthFactor() {
+        return (this.voyage.length > 14) ? -1 : 0;
     }
 
     protected int voyageAndHistoryLengthFactor() {
         int result = 0;
-        result += historyLengthFactor();
         if (voyage.length > 14) result -= 1;
         return result;
     }
 
     protected int historyLengthFactor() {
-        return history.length() > 8 ? 1 : 0;
+        return (history.length() > 8) ? 1 : 0;
     }
 
 

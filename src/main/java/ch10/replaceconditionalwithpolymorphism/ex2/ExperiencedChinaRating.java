@@ -16,7 +16,6 @@ public class ExperiencedChinaRating extends Rating {
     @Override
     protected int voyageAndHistoryLengthFactor() {
         int result = 0;
-        result += historyLengthFactor();
         if (voyage.length > 12) result += 1;
         if (voyage.length > 18) result -= 1;
 
@@ -28,4 +27,19 @@ public class ExperiencedChinaRating extends Rating {
         return history.length() > 10 ? 1 : 0;
     }
 
+    @Override
+    protected int voyageLengthFactor() {
+        int result = 0;
+        result += 3;
+        if (voyage.length > 12) result += 1;
+        if (voyage.length > 18) result -= 1;
+
+        return result;
+    }
+
+
+    @Override
+    public int voyageProfitFactor() {
+        return super.voyageProfitFactor() + 3;
+    }
 }
