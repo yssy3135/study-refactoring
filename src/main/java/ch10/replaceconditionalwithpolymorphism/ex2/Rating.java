@@ -58,19 +58,8 @@ public class Rating {
         return (this.voyage.length > 14) ? -1 : 0;
     }
 
-    protected int voyageAndHistoryLengthFactor() {
-        int result = 0;
-        if (voyage.length > 14) result -= 1;
-        return result;
-    }
-
     protected int historyLengthFactor() {
         return (history.length() > 8) ? 1 : 0;
-    }
-
-
-    private boolean hasChina(History history) {
-        return history.hasChina();
     }
 
 
