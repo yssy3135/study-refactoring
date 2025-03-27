@@ -20,7 +20,7 @@ public class Bird {
     }
 
     public Integer airSpeedVelocity() {
-        return 0;
+        return null;
     }
 
     public static Bird createBird(Bird bird) {

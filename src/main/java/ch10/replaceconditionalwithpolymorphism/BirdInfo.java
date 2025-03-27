@@ -7,7 +7,9 @@ import java.util.stream.Collectors;
 public class BirdInfo {
 
     public Map<String, String> plumages(List<Bird> birds) {
-        return birds.stream().collect(Collectors.toMap(b -> b.name, this::plumage));
+        return birds.stream()
+                .map(Bird::createBird)
+                .collect(Collectors.toMap(b -> b.name, this::plumage));
     }
 
     public String plumage(Bird bird) {
