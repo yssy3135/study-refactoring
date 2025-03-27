@@ -38,11 +38,10 @@ public class Rating {
         return Math.max(result, 0);
     }
 
-    private int captainHistoryRisk() {
+    protected int captainHistoryRisk() {
         int result = 1;
         if (history.length() < 5) result += 4;
         result += history.noProfitList();
-        if (voyage.zone.equals("중국") && hasChina(history)) result -= 2;
         return Math.max(result, 0);
     }
 

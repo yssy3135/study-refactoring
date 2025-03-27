@@ -7,5 +7,10 @@ public class ExperiencedChinaRating extends Rating {
     }
 
 
+    @Override
+    protected int captainHistoryRisk() {
+        int result = super.captainHistoryRisk() - 2;
+        return Math.max(result, 0);
+    }
 
 }
