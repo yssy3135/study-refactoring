@@ -49,7 +49,12 @@ public class Rating {
         int result = 2;
         if (voyage.zone.equals("중국")) result += 1;
         if (voyage.zone.equals("동인도")) result += 1;
-        if (voyage.zone.equals("wndrnr") && hasChina(history)) {
+        result = voyageAndHistoryLengthFactor(result);
+        return result;
+    }
+
+    private int voyageAndHistoryLengthFactor(int result) {
+        if (voyage.zone.equals("중국") && hasChina(history)) {
             result += 3;
             if (history.length() > 10) result += 1;
             if (voyage.length > 12) result += 1;
