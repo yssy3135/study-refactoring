@@ -5,11 +5,7 @@ import java.util.stream.Stream;
 
 public class Example {
     public String rating(Voyage voyage, History history) {
-        int vpf = voyageProfitFactor(voyage, history);
-        int vr = voyageRisk(voyage);
-        int chr = captainHistoryRisk(voyage, history);
-        if (vpf * 3 > vr + chr * 2) return "A";
-        return "B";
+        return Rating.createRating(voyage, history).getValue();
     }
 
     private int voyageRisk(Voyage voyage) {

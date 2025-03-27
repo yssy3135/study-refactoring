@@ -13,7 +13,7 @@ public class Rating {
         this.history = history;
     }
 
-    public Rating createRating(Voyage voyage, History history) {
+    public static Rating createRating(Voyage voyage, History history) {
         if ("중국".equals(voyage.zone) && history.hasChina()) {
             return new ExperiencedChinaRating(voyage, history);
         }
