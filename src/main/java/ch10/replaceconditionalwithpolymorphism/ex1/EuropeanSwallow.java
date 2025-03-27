@@ -1,4 +1,4 @@
-package ch10.replaceconditionalwithpolymorphism;
+package ch10.replaceconditionalwithpolymorphism.ex1;
 
 public class EuropeanSwallow extends Bird {
     public EuropeanSwallow(Bird bird) {

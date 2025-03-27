@@ -1,4 +1,4 @@
-package ch10.replaceconditionalwithpolymorphism;
+package ch10.replaceconditionalwithpolymorphism.ex1;
 
 import java.util.List;
 import java.util.Map;

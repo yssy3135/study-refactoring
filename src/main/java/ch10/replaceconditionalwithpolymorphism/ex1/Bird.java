@@ -1,4 +1,4 @@
-package ch10.replaceconditionalwithpolymorphism;
+package ch10.replaceconditionalwithpolymorphism.ex1;
 
 public class Bird {
     public String type;
