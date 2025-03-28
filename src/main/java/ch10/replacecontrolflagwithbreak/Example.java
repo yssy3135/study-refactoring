@@ -6,17 +6,10 @@ public class Example {
 
     public void checkForMiscreant(List<String> people ) {
 
-        for(String p : people) {
-            if(p.equals("조커")) {
-                sendAlert();
-                return ;
-            }
-            if(p.equals("사루만")) {
-                sendAlert();
-                return ;
-            }
-
-        }
+        people.stream()
+                .filter(p -> p.equals("조커") || p.equals("사루만"))
+                .findAny()
+                .ifPresent(s -> sendAlert());
     }
 
     private void sendAlert() {
