@@ -7,7 +7,9 @@ public class Customer {
     private double discountRate;
 
     public double applyDiscount(Integer aNumber) {
+        if(discountRate < 0) return aNumber;
 
-        return this.discountRate > 0 ? aNumber - (this.discountRate * aNumber) : aNumber;
+        assert discountRate >= 0;
+        return aNumber - (this.discountRate * aNumber) ;
     }
 }
