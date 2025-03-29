@@ -7,7 +7,7 @@ public class Example2 {
         if(usage < 0) return usd(0.0);
 
         Double amount = bottomBand(usage) * 0.03
-                + middleBand(usage) * 0.05
+                + withinBand(usage, 100, 200) * 0.05
                 + topBand(usage) * 0.07;
 
         return usd(amount);
@@ -27,5 +27,9 @@ public class Example2 {
 
     private Double usd(Double amount) {
         return amount;
+    }
+
+    private Double withinBand(Integer usage, Integer bottom, Integer top) {
+        return (double) (usage > 100 ? Math.min(usage, 200) - 100 : 0);
     }
 }
