@@ -30,6 +30,6 @@ public class Example2 {
     }
 
     private Double withinBand(Integer usage, Integer bottom, Integer top) {
-        return (double) (usage > 100 ? Math.min(usage, 200) - 100 : 0);
+        return (double) (usage > bottom ? Math.min(usage, top) - bottom : 0);
     }
 }
