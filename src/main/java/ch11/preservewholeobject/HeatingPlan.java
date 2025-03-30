@@ -11,12 +11,12 @@ public class HeatingPlan {
         return (bottom >= daysTempRange.low) && (top <= daysTempRange.high);
     }
 
-    public boolean xxNewWithinRange(HeatingPlan plan, TempRange tempRange) {
+    public boolean xxNewWithinRange(TempRange tempRange) {
 
         Integer low = tempRange.low;
         Integer high = tempRange.high;
 
-        boolean isWithInRange = plan.withinRange(low, high);
+        boolean isWithInRange = withinRange(low, high);
 
         return isWithInRange;
     }
