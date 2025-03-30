@@ -7,14 +7,15 @@ public class HeatingPlan {
     private Thermostat thermostat;
 
     public Double getTemperature() {
-        if(thermostat.targetTemperature > this.max) {
+        Double selectedTemperature = thermostat.selectedTemperature;
+        if(selectedTemperature > this.max) {
             return this.max;
         }
-        else if(thermostat.targetTemperature < this.min) {
+        else if(selectedTemperature < this.min) {
             return this.min;
         }
         else {
-            return thermostat.targetTemperature;
+            return selectedTemperature;
         }
     }
 }
