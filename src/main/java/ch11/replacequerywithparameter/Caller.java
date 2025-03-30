@@ -4,10 +4,10 @@ public class Caller {
 
     public void call(HeatingPlan thePlan, Thermostat theThermostat) {
 
-        if(thePlan.xxNEWtargetTemperature(theThermostat.selectedTemperature) > theThermostat.currentTemperature) {
+        if(thePlan.targetTemperature(theThermostat.selectedTemperature) > theThermostat.currentTemperature) {
             setToHeat();
         }
-        else if(thePlan.xxNEWtargetTemperature(theThermostat.selectedTemperature) < theThermostat.currentTemperature) {
+        else if(thePlan.targetTemperature(theThermostat.selectedTemperature) < theThermostat.currentTemperature) {
             setToCool();
         }
         else setOff();

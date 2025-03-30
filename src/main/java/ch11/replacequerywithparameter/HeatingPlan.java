@@ -7,11 +7,7 @@ public class HeatingPlan {
     private Thermostat thermostat;
     private HeatingPlan thePlan;
 
-    public Double targetTemperature() {
-        return xxNEWtargetTemperature(thermostat.selectedTemperature);
-    }
-
-    public double xxNEWtargetTemperature(Double selectedTemperature) {
+    public double targetTemperature(Double selectedTemperature) {
         if(selectedTemperature > this.max) {
             return this.max;
         }
