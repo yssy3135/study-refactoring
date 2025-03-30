@@ -35,4 +35,8 @@ public class Employee {
     public static EmployeeType[] legalTypeCodes() {
         return EmployeeType.values();
     }
+
+    public static Employee createEmployee(String name, String typeCode) {
+        return new Employee(name, typeCode);
+    }
 }
