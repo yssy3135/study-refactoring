@@ -19,7 +19,7 @@ public class Employee {
 
     private String typeCode;
 
-    public Employee(String name, String typeCode) {
+    private Employee(String name, String typeCode) {
         this.name = name;
         this.typeCode = typeCode;
     }
@@ -36,7 +36,11 @@ public class Employee {
         return EmployeeType.values();
     }
 
-    public static Employee createEmployee(String name, String typeCode) {
+    private static Employee createEmployee(String name, String typeCode) {
         return new Employee(name, typeCode);
+    }
+
+    public static Employee createEngineer(String name) {
+        return new Employee(name, EmployeeType.ENGINEER.typeCode);
     }
 }
