@@ -2,10 +2,17 @@ package ch11.replacefunctionwithcommand;
 
 public class Score {
 
-    public Score() {
+    private Candidate candidate;
+    private MedicalExam medicalExam;
+    private ScoringGuide scoringGuide;
+
+    public Score(Candidate candidate, MedicalExam medicalExam, ScoringGuide scoringGuide) {
+        this.candidate = candidate;
+        this.medicalExam = medicalExam;
+        this.scoringGuide = scoringGuide;
     }
 
-    public int execute(Candidate candidate, MedicalExam medicalExam, ScoringGuide scoringGuide) {
+    public int execute() {
         int result = 0;
         int healthLevel = 0;
         boolean highMedicalRiskFlag = false;
