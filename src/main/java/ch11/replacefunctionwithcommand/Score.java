@@ -5,6 +5,9 @@ public class Score {
     private Candidate candidate;
     private MedicalExam medicalExam;
     private ScoringGuide scoringGuide;
+    private int result;
+    private int healthLevel;
+    private boolean highMedicalRiskFlag;
 
     public Score(Candidate candidate, MedicalExam medicalExam, ScoringGuide scoringGuide) {
         this.candidate = candidate;
@@ -13,14 +16,11 @@ public class Score {
     }
 
     public int execute() {
-        int result = 0;
-        int healthLevel = 0;
-        boolean highMedicalRiskFlag = false;
+        result = 0;
+        healthLevel = 0;
+        highMedicalRiskFlag = false;
 
-        if (medicalExam.isSmoker()) {
-            healthLevel += 10;
-            highMedicalRiskFlag = true;
-        }
+        scoreSmoking();
 
         String certificationGrade = "regular";
         if (scoringGuide.stateWithLowCertification(candidate.getOriginState())) {
@@ -31,5 +31,12 @@ public class Score {
 
         result -= Math.max(healthLevel - 5, 0);
         return result;
+    }
+
+    private void scoreSmoking() {
+        if (medicalExam.isSmoker()) {
+            healthLevel += 10;
+            highMedicalRiskFlag = true;
+        }
     }
 }
