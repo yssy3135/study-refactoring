@@ -3,13 +3,12 @@ package ch11.replaceparameterwithquery;
 public class Order {
     public double getPrice(int quantity, double itemPrice) {
         double basePrice = quantity * itemPrice;
-        int discountLevel;
-        if (quantity > 100) {
-            discountLevel = 2;
-        } else {
-            discountLevel = 1;
-        }
+        int discountLevel = getDiscountLevel(quantity);
         return discountedPrice(basePrice, discountLevel);
+    }
+
+    private static int getDiscountLevel(int quantity) {
+        return quantity > 100 ? 2 : 1;
     }
 
     private double discountedPrice(double basePrice, int discountLevel) {
