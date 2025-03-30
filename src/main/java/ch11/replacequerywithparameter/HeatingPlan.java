@@ -5,9 +5,13 @@ public class HeatingPlan {
     private Double max;
     private Double min;
     private Thermostat thermostat;
+    private HeatingPlan thePlan;
 
-    public Double getTemperature() {
-        Double selectedTemperature = thermostat.selectedTemperature;
+    public Double targetTemperature() {
+        return xxNEWtargetTemperature(thermostat.selectedTemperature);
+    }
+
+    public double xxNEWtargetTemperature(Double selectedTemperature) {
         if(selectedTemperature > this.max) {
             return this.max;
         }
