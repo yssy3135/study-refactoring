@@ -6,6 +6,16 @@ import java.util.List;
 // 매개변수를 까다로운 방식으로 사용할 때
 public class Example2 {
 
+
+
+    public LocalDate rushDeliveryDate(Order anOrder) {
+        return deliveryDate(anOrder, true);
+    }
+
+    public LocalDate regularDeliveryDate(Order anOrder) {
+        return deliveryDate(anOrder, false);
+    }
+
     public LocalDate deliveryDate(Order anOrder, Boolean isRush) {
         LocalDate result;
         Integer deliveryTime;
