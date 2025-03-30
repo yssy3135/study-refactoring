@@ -21,7 +21,4 @@ public class Person {
         this.name = name;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
 }
