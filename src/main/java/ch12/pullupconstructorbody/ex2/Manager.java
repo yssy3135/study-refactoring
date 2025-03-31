@@ -7,6 +7,10 @@ public class Manager extends Employee {
     public Manager(String name, int grade) {
         super(name);
         this.grade = grade;
+        finishConstruction();
+    }
+
+    private void finishConstruction() {
         if(this.isPrivileged()) {
             this.assignCar();
         }
