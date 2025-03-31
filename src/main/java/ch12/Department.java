@@ -2,7 +2,7 @@ package ch12;
 
 public class Department extends Party {
 
-    public Integer getTotalAnnualCost() {
+    public Integer getAnnualCost() {
         return this.monthlyCost() * 12;
     }
 
