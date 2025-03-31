@@ -5,12 +5,10 @@ import java.util.List;
 public class Employee {
 
     String name;
-    String type;
 
     public Employee(String name, String type) {
         this.validateType(type);
         this.name = name;
-        this.type = type;
     }
 
     private void validateType(String type) {
@@ -21,7 +19,7 @@ public class Employee {
     }
 
     public String toString() {
-        return "name: %s, type: %s".formatted(this.name, this.type);
+        return "name: %s, type: %s".formatted(this.name);
     }
 
 }
