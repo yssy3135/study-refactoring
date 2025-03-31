@@ -7,8 +7,8 @@ public class Employee extends Party {
 
 
     public Employee(String id, String name, int monthlyCost) {
+        super(name);
         this.id = id;
-        this.name = name;
         this.monthlyCost = monthlyCost;
     }
 

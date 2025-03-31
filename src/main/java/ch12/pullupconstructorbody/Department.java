@@ -6,8 +6,7 @@ public class Department extends Party {
     private String staff;
 
     public Department(String name, String staff) {
-        super();
-        this.name = name;
+        super(name);
         this.staff = staff;
     }
 }
