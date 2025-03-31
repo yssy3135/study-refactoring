@@ -23,4 +23,5 @@ public class Employee {
     public String toString() {
         return "name: %s, type: %s".formatted(this.name, this.type);
     }
+
 }
