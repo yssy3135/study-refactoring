@@ -1,4 +1,4 @@
-package ch12;
+package ch12.pullupMethod;
 
 public class Employee extends Party{
 
