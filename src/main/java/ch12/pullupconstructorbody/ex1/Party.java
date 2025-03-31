@@ -1,4 +1,4 @@
-package ch12.pullupconstructorbody;
+package ch12.pullupconstructorbody.ex1;
 
 public class Party {
 
