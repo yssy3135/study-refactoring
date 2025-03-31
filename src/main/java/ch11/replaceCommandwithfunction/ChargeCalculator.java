@@ -13,12 +13,10 @@ public class ChargeCalculator {
         this.provider = provider;
     }
 
-    public double baseCharge() {
-        return customer.baseRate * usage;
-    }
 
     public double charge() {
-        return baseCharge() + provider.connectionCharge;
+        double baseCharge = customer.baseRate * usage;
+        return baseCharge + provider.connectionCharge;
     }
 
 
