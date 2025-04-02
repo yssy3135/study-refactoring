@@ -9,7 +9,7 @@ public class Employee {
 
     public Employee(String name, String type) {
         this.name = name;
-        this.type = new EmployeeType(type);
+        this.type = new EmployeeType();
     }
 
     public void validateType(String arg) {
@@ -23,7 +23,7 @@ public class Employee {
     }
 
     public void setType(String type) {
-        this.type = new EmployeeType(type);
+        this.type = createEmployeeType(type);
     }
 
 
@@ -37,6 +37,15 @@ public class Employee {
 
     public String getTypeString() {
         return this.type.toString();
+    }
+
+    public static EmployeeType createEmployeeType(String aString) {
+        return switch (aString) {
+            case "engineer" -> new Engineer();
+            case "manager" -> new Manager();
+            case "salesman" -> new Salesperson();
+            default -> throw new IllegalArgumentException(String.format("%s라는 직원 유형은 없습니다.", aString));
+        };
     }
 
 }
