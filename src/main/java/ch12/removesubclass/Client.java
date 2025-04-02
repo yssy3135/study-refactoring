@@ -7,7 +7,11 @@ public class Client {
 
 
     public void call(List<Person> people) {
-        long numberOfMales = people.stream().filter(p -> p instanceof Male).count();
+        long numberOfMales = people.stream().filter(this::isMale).count();
+    }
+
+    private boolean isMale(Person p) {
+        return p instanceof Male;
     }
 
     public List<Person> loadFromInput(List<Person> data) {
