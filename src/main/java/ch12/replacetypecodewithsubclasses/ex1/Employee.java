@@ -1,6 +1,4 @@
-package ch12.replacetypecodewithsubclasses;
-
-import java.util.List;
+package ch12.replacetypecodewithsubclasses.ex1;
 
 public class Employee {
 

@@ -1,4 +1,4 @@
-package ch12.replacetypecodewithsubclasses;
+package ch12.replacetypecodewithsubclasses.ex1;
 
 public class EmployeeFactory {
     public static Employee createEmployee(String name, String type) {
