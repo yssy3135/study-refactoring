@@ -10,4 +10,8 @@ public class Female extends Person {
     public String getGenderCode() {
         return "F";
     }
+
+    public static Female createFemale(String name) {
+        return new Female(name);
+    }
 }

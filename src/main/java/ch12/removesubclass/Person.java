@@ -14,4 +14,8 @@ public class Person{
     public String getGenderCode() {
         return "X";
     }
+
+    public static Person createPerson(String name) {
+        return new Person(name);
+    }
 }
