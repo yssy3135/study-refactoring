@@ -4,6 +4,7 @@ public class Salesperson extends EmployeeType {
 
 
     public Salesperson() {
+        super("Salesperson");
     }
 
     public String toString() {

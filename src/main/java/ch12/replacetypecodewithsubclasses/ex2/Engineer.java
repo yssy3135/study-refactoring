@@ -4,6 +4,7 @@ public class Engineer extends EmployeeType {
 
 
     public Engineer() {
+        super("Engineer");
     }
 
     public String toString() {

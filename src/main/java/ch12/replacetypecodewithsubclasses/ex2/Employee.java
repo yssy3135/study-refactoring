@@ -9,7 +9,7 @@ public class Employee {
 
     public Employee(String name, String type) {
         this.name = name;
-        this.type = new EmployeeType();
+        this.type = new EmployeeType(type);
     }
 
     public void validateType(String arg) {
@@ -27,12 +27,8 @@ public class Employee {
     }
 
 
-    public String capitalizedType() {
-        return this.getTypeString().substring(0, 1).toUpperCase() + this.getTypeString().substring(1).toLowerCase();
-    }
-
     public String toString() {
-        return String.format("%s, (%s)", this.name, this.capitalizedType());
+        return String.format("%s, (%s)", this.name, this.type.capitalizedType());
     }
 
     public String getTypeString() {
