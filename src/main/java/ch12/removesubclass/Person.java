@@ -2,9 +2,12 @@ package ch12.removesubclass;
 
 public class Person{
     private String name;
+    private String genderCode;
 
-    public Person(String name) {
+
+    public Person(String name, String genderCode) {
         this.name = name;
+        this.genderCode = genderCode;
     }
 
     public String getName() {
@@ -12,10 +15,8 @@ public class Person{
     }
 
     public String getGenderCode() {
-        return "X";
+        return genderCode;
     }
 
-    public static Person createPerson(String name) {
-        return new Person(name);
-    }
+
 }

@@ -20,9 +20,9 @@ public class Client {
 
     private static Person createPerson(Person aRecord) {
         return switch (aRecord.getGenderCode()) {
-            case "M" -> new Male(aRecord.getName());
-            case "F" -> new Female(aRecord.getName());
-            default -> new Person(aRecord.getName());
+            case "M" -> new Person(aRecord.getName(), "M");
+            case "F" -> new Person(aRecord.getName(), "F");
+            default -> new Person(aRecord.getName(), "X");
         };
     }
 }
