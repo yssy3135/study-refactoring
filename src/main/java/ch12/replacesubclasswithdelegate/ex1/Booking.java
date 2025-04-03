@@ -19,7 +19,11 @@ public class Booking {
     }
 
     public boolean hasTalkback() {
-        return this.show.hasOwnProperty("talkback") && this.isPeakDay();
+
+        return premiumBookingDelegate != null
+                ? premiumBookingDelegate.hasTalkback()
+                :this.show.hasOwnProperty("talkback") && this.isPeakDay();
+
     }
 
     protected boolean isPeakDay() {

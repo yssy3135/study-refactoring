@@ -2,7 +2,7 @@ package ch12.replacesubclasswithdelegate.ex1;
 
 import java.time.LocalDateTime;
 
-public class PremiumBooking extends Booking{
+public class PremiumBooking extends Booking {
 
     private Extras extras;
 
@@ -15,12 +15,6 @@ public class PremiumBooking extends Booking{
         result.bePremiumDelegate(extras);
 
         return result;
-    }
-
-
-    @Override
-    public boolean hasTalkback() {
-        return this.premiumBookingDelegate.hasTalkback();
     }
 
     @Override
