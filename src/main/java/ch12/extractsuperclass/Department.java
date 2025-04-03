@@ -15,7 +15,7 @@ public class Department extends Party {
         return staff;
     }
 
-    public Integer totalMonthlyCost() {
+    public Integer monthlyCost() {
         return staff.stream().reduce(0, (total, s) -> total + s.getMonthlyCost(), Integer::sum);
     }
 
@@ -23,7 +23,7 @@ public class Department extends Party {
         return staff.size();
     }
 
-    public Integer totalAnnualCost() {
-        return totalMonthlyCost() * 12;
+    public Integer getAnnualCost() {
+        return monthlyCost() * 12;
     }
 }
