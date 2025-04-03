@@ -14,9 +14,6 @@ public class Employee extends Party {
     public Integer getMonthlyCost() {
         return this.monthlyCost;
     }
-    public String getName() {
-        return this.name;
-    }
     public Long getId() {
         return this.id;
     }

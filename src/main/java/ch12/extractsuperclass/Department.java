@@ -11,10 +11,6 @@ public class Department extends Party {
         this.staff = staff;
     }
 
-    public String getName() {
-        return this.name;
-    }
-
     public List<Staff> getStaff() {
         return staff;
     }

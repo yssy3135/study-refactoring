@@ -7,4 +7,8 @@ public class Party {
     public Party(String name) {
         this.name = name;
     }
+
+    public String getName() {
+        return name;
+    }
 }
