@@ -31,6 +31,12 @@ public class Booking {
     }
 
     public Double basePrice() {
+        return premiumBookingDelegate != null
+                ? premiumBookingDelegate.basePrice()
+                : privateBasePrice();
+    }
+
+    public Double privateBasePrice() {
         Double result = this.show.price;
         if(this.isPeakDay()) result += Math.round(result * 0.15);
         return result;

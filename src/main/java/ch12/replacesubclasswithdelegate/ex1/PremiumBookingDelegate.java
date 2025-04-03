@@ -14,4 +14,9 @@ public class PremiumBookingDelegate {
         return this.host.show.hasOwnProperty("talkback");
     }
 
+
+    public Double basePrice() {
+        return (double) Math.round(host.privateBasePrice() + this.extras.premiumFee);
+    }
+
 }
