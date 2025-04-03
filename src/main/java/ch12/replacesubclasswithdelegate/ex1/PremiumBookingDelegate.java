@@ -19,4 +19,7 @@ public class PremiumBookingDelegate {
         return (double) Math.round(host.privateBasePrice() + this.extras.premiumFee);
     }
 
+    public Double extendBasePrice(Double base) {
+        return (double) Math.round(base + this.extras.premiumFee);
+    }
 }
