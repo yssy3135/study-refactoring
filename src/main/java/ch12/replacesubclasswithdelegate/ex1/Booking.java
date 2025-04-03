@@ -6,7 +6,7 @@ public class Booking {
 
     Show show;
     private LocalDateTime date;
-    private PremiumBookingDelegate premiumBookingDelegate;
+    protected PremiumBookingDelegate premiumBookingDelegate;
 
 
     public Booking(Show show, LocalDateTime date) {

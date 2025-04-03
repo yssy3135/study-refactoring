@@ -20,7 +20,7 @@ public class PremiumBooking extends Booking{
 
     @Override
     public boolean hasTalkback() {
-        return this.show.hasOwnProperty("talkback");
+        return this.premiumBookingDelegate.hasTalkback();
     }
 
     @Override
