@@ -3,7 +3,7 @@ package ch12.removesubclass;
 public class Male extends Person {
 
     public Male(String name) {
-        super(name);
+        super(name, "M");
     }
 
     @Override
