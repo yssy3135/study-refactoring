@@ -13,6 +13,10 @@ public class Booking {
         this.date = date;
     }
 
+    public static Booking createBooking(Show show, LocalDateTime date) {
+        return new Booking(show, date);
+    }
+
     public boolean hasTalkback() {
         return this.show.hasOwnProperty("talkback") && this.isPeakDay();
     }

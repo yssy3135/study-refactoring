@@ -10,6 +10,9 @@ public class PremiumBooking extends Booking{
         super(show, date);
         this.extras = extras;
     }
+    public static PremiumBooking createBooking(Show show, LocalDateTime date, Extras extras) {
+        return new PremiumBooking(show, date, extras);
+    }
 
 
     @Override
