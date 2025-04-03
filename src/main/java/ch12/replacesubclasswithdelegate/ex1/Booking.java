@@ -6,6 +6,7 @@ public class Booking {
 
     Show show;
     private LocalDateTime date;
+    private PremiumBookingDelegate premiumBookingDelegate;
 
 
     public Booking(Show show, LocalDateTime date) {
@@ -29,5 +30,9 @@ public class Booking {
         Double result = this.show.price;
         if(this.isPeakDay()) result += Math.round(result * 0.15);
         return result;
+    }
+
+    protected void bePremiumDelegate(Extras extras) {
+        this.premiumBookingDelegate = new PremiumBookingDelegate(this, extras);
     }
 }

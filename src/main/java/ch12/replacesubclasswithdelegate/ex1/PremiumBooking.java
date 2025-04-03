@@ -10,8 +10,11 @@ public class PremiumBooking extends Booking{
         super(show, date);
         this.extras = extras;
     }
-    public static PremiumBooking createBooking(Show show, LocalDateTime date, Extras extras) {
-        return new PremiumBooking(show, date, extras);
+    public static PremiumBooking createPremiumBooking(Show show, LocalDateTime date, Extras extras) {
+        PremiumBooking result = new PremiumBooking(show, date, extras);
+        result.bePremiumDelegate(extras);
+
+        return result;
     }
 
 
