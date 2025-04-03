@@ -4,16 +4,15 @@ import java.util.List;
 
 public class Department extends Party {
 
-    private String name;
     private List<Staff> staff;
 
     public Department(String name, List<Staff> staff) {
-        this.name = name;
+        super(name);
         this.staff = staff;
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public List<Staff> getStaff() {
