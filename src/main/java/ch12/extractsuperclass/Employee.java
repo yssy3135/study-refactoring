@@ -1,6 +1,6 @@
 package ch12.extractsuperclass;
 
-public class Employee {
+public class Employee extends Party {
 
     private String name;
     private Long id;

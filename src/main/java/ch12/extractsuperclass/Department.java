@@ -2,7 +2,7 @@ package ch12.extractsuperclass;
 
 import java.util.List;
 
-public class Department {
+public class Department extends Party {
 
     private String name;
     private List<Staff> staff;
