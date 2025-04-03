@@ -10,6 +10,6 @@ public class Client {
     }
 
     public void premiumBooking(Show show, LocalDateTime date, Extras extras) {
-        PremiumBooking aBooking = PremiumBooking.createPremiumBooking(show, date, extras);
+        Booking aBooking = PremiumBooking.createPremiumBooking(show, date, extras);
     }
 }
