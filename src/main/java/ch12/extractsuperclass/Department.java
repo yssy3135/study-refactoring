@@ -8,7 +8,9 @@ public class Department extends Party {
 
     public Department(String name, List<Staff> staff) {
         super(name);
+        this.monthlyCost = monthlyCost();
         this.staff = staff;
+
     }
 
     public List<Staff> getStaff() {
@@ -23,7 +25,4 @@ public class Department extends Party {
         return staff.size();
     }
 
-    public Integer getAnnualCost() {
-        return monthlyCost() * 12;
-    }
 }
