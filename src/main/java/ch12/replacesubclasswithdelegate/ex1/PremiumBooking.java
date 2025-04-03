@@ -2,6 +2,7 @@ package ch12.replacesubclasswithdelegate.ex1;
 
 import java.time.LocalDateTime;
 
+@Deprecated
 public class PremiumBooking extends Booking {
 
     private Extras extras;
@@ -10,8 +11,8 @@ public class PremiumBooking extends Booking {
         super(show, date);
         this.extras = extras;
     }
-    public static PremiumBooking createPremiumBooking(Show show, LocalDateTime date, Extras extras) {
-        PremiumBooking result = new PremiumBooking(show, date, extras);
+    public static Booking createPremiumBooking(Show show, LocalDateTime date, Extras extras) {
+        Booking result = new Booking(show, date);
         result.bePremiumDelegate(extras);
 
         return result;
