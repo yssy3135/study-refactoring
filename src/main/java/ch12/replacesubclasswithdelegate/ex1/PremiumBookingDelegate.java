@@ -22,4 +22,9 @@ public class PremiumBookingDelegate {
     public Double extendBasePrice(Double base) {
         return (double) Math.round(base + this.extras.premiumFee);
     }
+
+
+    public Boolean hasDinner() {
+        return this.extras.hasOwnProperty("dinner") && !this.host.isPeakDay();
+    }
 }

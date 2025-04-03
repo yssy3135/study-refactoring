@@ -30,6 +30,12 @@ public class Booking {
         return false;
     }
 
+    public Boolean hasDinner() {
+        return premiumBookingDelegate != null
+                ? premiumBookingDelegate.hasDinner()
+                : null;
+    }
+
     public Double basePrice() {
         Double result = this.show.price;
         if(this.isPeakDay()) result += Math.round(result * 0.15);

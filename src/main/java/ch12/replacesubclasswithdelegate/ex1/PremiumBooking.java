@@ -22,7 +22,4 @@ public class PremiumBooking extends Booking {
         return (double) Math.round(super.basePrice() + this.extras.premiumFee);
     }
 
-    public Boolean hasDinner() {
-        return this.extras.hasOwnProperty("dinner") && !this.isPeakDay();
-    }
 }
