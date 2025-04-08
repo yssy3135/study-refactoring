@@ -5,7 +5,7 @@ public class Bird {
     private String name;
     private String plumage;
     protected Data data;
-    protected SpeciesDelegate speciesDelegate;
+    protected Bird speciesDelegate;
 
     public Bird(Data data) {
         this.name = data.name;
@@ -27,7 +27,7 @@ public class Bird {
         return null;
     }
 
-    public SpeciesDelegate selectSpecialDelegate(Data data) {
+    public Bird selectSpecialDelegate(Data data) {
         switch (data.type) {
             case "유럽제비" :
                 return new EuropeanSwallowDelegate(data);

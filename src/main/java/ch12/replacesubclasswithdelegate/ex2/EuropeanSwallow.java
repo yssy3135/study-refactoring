@@ -1,6 +1,6 @@
 package ch12.replacesubclasswithdelegate.ex2;
 
-public class EuropeanSwallow extends Bird{
+public class EuropeanSwallow extends Bird {
 
     public EuropeanSwallow(Data data) {
         super(data);
@@ -8,7 +8,7 @@ public class EuropeanSwallow extends Bird{
 
     @Override
     public Integer getAirSpeedVelocity() {
-        return 35;
+        return this.speciesDelegate.getAirSpeedVelocity();
     }
 
 }
