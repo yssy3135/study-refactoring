@@ -4,6 +4,7 @@ public class Data {
     public String name;
     public String plumage;
     public String type;
+    public Integer voltage;
     public boolean isNailed;
 
     public int numberOfCoconuts() {
