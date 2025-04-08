@@ -24,13 +24,17 @@ public class Bird {
     }
 
     public Integer getAirSpeedVelocity() {
-        return null;
+        return this.speciesDelegate != null ? speciesDelegate.getAirSpeedVelocity() : null;
     }
 
     public Bird selectSpecialDelegate(Data data) {
         switch (data.type) {
             case "유럽제비" :
                 return new EuropeanSwallowDelegate(data);
+            case "아프리카 제비" :
+                return new AfricanSwallow(data);
+            case "노르웨이 파랑 앵무" :
+                return new NorwegianBlueParrot(data);
             default: return null;
         }
 

@@ -1,5 +1,6 @@
 package ch12.replacesubclasswithdelegate.ex2;
 
+@Deprecated
 public class EuropeanSwallow extends Bird {
 
     public EuropeanSwallow(Data data) {
