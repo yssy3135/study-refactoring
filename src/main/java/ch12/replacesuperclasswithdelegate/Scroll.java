@@ -5,13 +5,12 @@ import java.time.temporal.ChronoUnit;
 import java.time.temporal.Temporal;
 import java.util.List;
 
-public class Scroll extends CatalogItem{
+public class Scroll {
 
     private LocalDateTime lastCleaned;
     private CatalogItem catalogItem;
 
     public Scroll(Long id, String title, List<String> tags, LocalDateTime dateLastCleaned) {
-        super(id, title, tags);
         catalogItem = new CatalogItem(id, title, tags);
         this.lastCleaned = dateLastCleaned;
     }
