@@ -4,6 +4,7 @@ public class Data {
     public String name;
     public String plumage;
     public String type;
+    public boolean isNailed;
 
     public int numberOfCoconuts() {
         return 0;
