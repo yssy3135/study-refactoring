@@ -33,7 +33,7 @@ public class Bird {
         return switch (data.type) {
             case "유럽 제비" -> new EuropeanSwallowDelegate(data);
             case "아프리카 제비" -> new AfricanSwallowDelegate(data);
-            case "노르웨이 블루 앵무새" -> new NorwegianBlueParrotDelegate(data);
+            case "노르웨이 블루 앵무새" -> new NorwegianBlueParrotDelegate(data, this);
             default -> null;
         };
     }
