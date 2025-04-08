@@ -8,8 +8,11 @@ import java.util.List;
 public class Scroll extends CatalogItem{
 
     private LocalDateTime lastCleaned;
+    private CatalogItem catalogItem;
+
     public Scroll(Long id, String title, List<String> tags, LocalDateTime dateLastCleaned) {
         super(id, title, tags);
+        catalogItem = new CatalogItem(id, title, tags);
         this.lastCleaned = dateLastCleaned;
     }
 
@@ -20,6 +23,18 @@ public class Scroll extends CatalogItem{
 
     private long daysSinceLastCleaning(LocalDateTime targetDate) {
         return this.lastCleaned.until(targetDate, ChronoUnit.DAYS);
+    }
+
+    public Long getId() {
+        return catalogItem.getId();
+    }
+
+    public String getTitle() {
+        return catalogItem.getTitle();
+    }
+
+    public boolean hasTag(String tag) {
+        return catalogItem.hasTag(tag);
     }
 
 
