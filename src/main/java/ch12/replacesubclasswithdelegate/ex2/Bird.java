@@ -1,6 +1,5 @@
 package ch12.replacesubclasswithdelegate.ex2;
 
-import java.util.Optional;
 
 public class Bird {
     protected Integer voltage;

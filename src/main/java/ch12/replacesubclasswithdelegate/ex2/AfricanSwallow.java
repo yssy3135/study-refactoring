@@ -1,6 +1,7 @@
 package ch12.replacesubclasswithdelegate.ex2;
 
-public class AfricanSwallow extends Bird{
+@Deprecated
+public class AfricanSwallow extends Bird {
 
     public AfricanSwallow(Data data) {
         super(data);
@@ -8,6 +9,6 @@ public class AfricanSwallow extends Bird{
 
     @Override
     public Integer getAirSpeedVelocity() {
-        return 40 - 2 * this.data.numberOfCoconuts();
+        return null;
     }
 }
