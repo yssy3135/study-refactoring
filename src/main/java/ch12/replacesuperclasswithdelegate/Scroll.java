@@ -4,14 +4,15 @@ import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.Temporal;
 import java.util.List;
+import java.util.function.Function;
 
 public class Scroll {
 
     private LocalDateTime lastCleaned;
     private CatalogItem catalogItem;
 
-    public Scroll(Long id, String title, List<String> tags, LocalDateTime dateLastCleaned) {
-        catalogItem = new CatalogItem(id, title, tags);
+    public Scroll(Long id, LocalDateTime dateLastCleaned, Long catalogId, Function<Long, CatalogItem> catalog) {
+        catalogItem = catalog.apply(catalogId);
         this.lastCleaned = dateLastCleaned;
     }
 
